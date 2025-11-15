@@ -13,7 +13,14 @@ import {
   Zap, 
   Building2,
   Camera,
-  X
+  X,
+  Shield,
+  Home,
+  Briefcase,
+  BarChart3,
+  Award,
+  Calendar,
+  ArrowRight
 } from "lucide-react";
 import {
   Dialog,
@@ -22,40 +29,70 @@ import {
 
 const programs = [
   {
-    icon: Target,
-    title: "Personal Effectiveness",
-    description: "Master time management, goal setting, and productivity techniques to achieve peak performance in all areas of life.",
-    color: "from-blue-500 to-blue-600",
-  },
-  {
-    icon: Users,
-    title: "Leadership & Teamwork",
-    description: "Develop essential leadership skills, build high-performing teams, and create a culture of collaboration and excellence.",
-    color: "from-purple-500 to-purple-600",
-  },
-  {
     icon: TrendingUp,
-    title: "Sales & Business Development",
-    description: "Enhance sales techniques, negotiation skills, and relationship building to drive revenue growth and business success.",
+    title: "Sales Mastery & Business Growth",
+    description: "Accelerate results through advanced sales and persuasion strategies, negotiation skills, and relationship building for business growth.",
     color: "from-green-500 to-green-600",
   },
   {
+    icon: Users,
+    title: "Leadership & Organizational Excellence",
+    description: "Develop visionary leaders and high-performing teams through comprehensive leadership development and organizational transformation.",
+    color: "from-purple-500 to-purple-600",
+  },
+  {
+    icon: BarChart3,
+    title: "Employee Productivity Training",
+    description: "Enhance workplace efficiency, time management, and output quality to maximize individual and team productivity.",
+    color: "from-pink-500 to-pink-600",
+  },
+  {
+    icon: Target,
+    title: "Personal Effectiveness & Emotional Mastery",
+    description: "Strengthen focus, balance, and inner resilience through time management, goal setting, and emotional intelligence for peak performance.",
+    color: "from-blue-500 to-blue-600",
+  },
+  {
+    icon: Shield,
+    title: "Life Insurance Sales Development",
+    description: "Specialized training to master life insurance sales techniques, build client trust, and achieve consistent sales targets.",
+    color: "from-teal-500 to-teal-600",
+  },
+  {
+    icon: Home,
+    title: "Real Estate Sales Development",
+    description: "Comprehensive training for plot and flats sales, including negotiation skills, client relationship management, and closing techniques.",
+    color: "from-amber-500 to-amber-600",
+  },
+  {
+    icon: Briefcase,
+    title: "Business Development Coaching",
+    description: "Strategic coaching to identify opportunities, build partnerships, and accelerate business growth through proven methodologies.",
+    color: "from-cyan-500 to-cyan-600",
+  },
+  {
     icon: MessageSquare,
-    title: "Communication Skills",
-    description: "Build confident communication, active listening, and persuasive presentation skills for impactful interactions.",
+    title: "Communication & Influence Skills",
+    description: "Build impactful communication, executive presence, active listening, and persuasive presentation skills for influential interactions.",
     color: "from-orange-500 to-orange-600",
   },
   {
     icon: Zap,
-    title: "Motivational Programs",
-    description: "Ignite passion, overcome obstacles, and cultivate a winning mindset through powerful motivational interventions.",
+    title: "Motivational & Mindset Transformation",
+    description: "Inspire peak performance through purpose-driven sessions that ignite passion, overcome obstacles, and cultivate a winning mindset.",
     color: "from-red-500 to-red-600",
   },
   {
     icon: Building2,
-    title: "Organizational Development",
-    description: "Transform organizational culture, enhance employee engagement, and drive sustainable business transformation.",
+    title: "Organizational Development Interventions",
+    description: "Transform culture, performance, and people systems to enhance employee engagement and drive sustainable business transformation.",
     color: "from-indigo-500 to-indigo-600",
+  },
+  {
+    icon: Award,
+    title: "Change Management & Strategy Building",
+    description: "Advanced leadership programs to develop strategic thinking, decision-making capabilities, and inspire high-performing teams.",
+    color: "from-violet-500 to-violet-600",
   },
 ];
 
@@ -113,6 +150,10 @@ export default function Programs() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Card className="h-full group hover:border-accent/50 cursor-pointer relative overflow-hidden">
+                  {/* Number Badge */}
+                  <div className="absolute top-4 left-4 z-10 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg font-bold text-sm">
+                    {index + 1}
+                  </div>
                   {/* Accent border on hover */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
                        style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }} />
@@ -137,6 +178,47 @@ export default function Programs() {
               </motion.div>
             );
           })}
+
+          {/* Book Your Session Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: programs.length * 0.1, duration: 0.5 }}
+          >
+            <a
+              href="https://wa.me/919666722233?text=Hi, I would like to book a training session!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block h-full"
+            >
+              <Card className="h-full group hover:border-accent/50 cursor-pointer relative overflow-hidden">
+                {/* Number Badge */}
+                <div className="absolute top-4 left-4 z-10 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg font-bold text-sm">
+                  {programs.length + 1}
+                </div>
+                {/* Accent border on hover */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <CardHeader>
+                  <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-accent to-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Calendar className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="font-heading group-hover:text-accent transition-colors duration-300 flex items-center gap-2">
+                    Book Your Session
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 leading-relaxed">
+                    Ready to transform your team? Click here to book a personalized training session and take your organization to the next level.
+                  </p>
+                </CardContent>
+
+                {/* Hover Effect Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+              </Card>
+            </a>
+          </motion.div>
         </div>
 
         {/* Training Session Photos */}

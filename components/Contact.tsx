@@ -88,8 +88,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-primary mb-1">Email</div>
-                  <a href="mailto:contact@gopikrishna.in" className="text-gray-600 hover:text-accent transition-colors">
-                    contact@gopikrishna.in
+                  <a href="mailto:coach@gopisarvepalli.com" className="text-gray-600 hover:text-accent transition-colors">
+                    coach@gopisarvepalli.com
                   </a>
                 </div>
               </div>

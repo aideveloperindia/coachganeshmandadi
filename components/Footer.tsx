@@ -76,9 +76,9 @@ export default function Footer() {
                   <Phone className="w-5 h-5" />
                   +91 96667 22233
                 </a>
-                <a href="mailto:contact@gopikrishna.in" className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
+                <a href="mailto:coach@gopisarvepalli.com" className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
                   <Mail className="w-5 h-5" />
-                  contact@gopikrishna.in
+                  coach@gopisarvepalli.com
                 </a>
               </div>
             </div>

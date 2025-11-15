@@ -157,13 +157,13 @@ export default function FooterNav() {
                 </div>
               </a>
               <a
-                href="mailto:contact@gopikrishna.com"
+                href="mailto:coach@gopisarvepalli.com"
                 className="flex items-start space-x-3 text-white/80 hover:text-accent transition-colors group"
               >
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="text-sm text-white/60">Email</div>
-                  <div>contact@gopikrishna.com</div>
+                  <div>coach@gopisarvepalli.com</div>
                 </div>
               </a>
               <div className="flex items-start space-x-3 text-white/80">

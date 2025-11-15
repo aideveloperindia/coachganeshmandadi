@@ -43,7 +43,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
           >
             <p className="text-xl md:text-2xl text-gray-700 mb-2 max-w-3xl mx-auto">
-              Corporate Trainer | Business Coach | OD Consultant
+              Corporate Trainer | Executive & Sales Coach | OD Consultant
             </p>
             <p className="text-lg text-accent font-semibold">
               ✨ Transforming Lives Since 1996

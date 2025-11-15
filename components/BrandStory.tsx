@@ -34,6 +34,18 @@ export default function BrandStory() {
             <Quote className="w-10 h-10 text-white" />
           </motion.div>
 
+          {/* Tagline */}
+          <motion.div
+            className="mb-6"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.3 }}
+          >
+            <p className="text-2xl md:text-3xl font-bold text-accent mb-4">
+              "Empowering People. Transforming Organizations."
+            </p>
+          </motion.div>
+
           {/* Title */}
           <motion.h2
             className="text-3xl md:text-5xl font-heading font-bold mb-6"
@@ -51,10 +63,7 @@ export default function BrandStory() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.6 }}
           >
-            "Every program is designed to unlock human potential through{" "}
-            <strong className="text-accent font-normal">clarity</strong>,{" "}
-            <strong className="text-accent font-normal">communication</strong>, and{" "}
-            <strong className="text-accent font-normal">consistency</strong>."
+            "To inspire, empower, and transform individuals and institutions to live, lead, and perform with excellence."
           </motion.p>
 
           {/* Description */}
