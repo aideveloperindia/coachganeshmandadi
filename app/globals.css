@@ -17,7 +17,7 @@
   }
   
   body {
-    @apply bg-white text-text font-sans;
+    @apply bg-white text-primary font-sans;
   }
   
   html {
@@ -37,6 +37,19 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+  
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+  }
 }
 
 /* Mobile-specific improvements */
@@ -45,6 +58,7 @@
   h1, h2, h3 {
     word-wrap: break-word;
     overflow-wrap: break-word;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
   }
   
   /* Better touch targets */
@@ -56,6 +70,37 @@
   /* Prevent horizontal scroll */
   body {
     overflow-x: hidden;
+  }
+  
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Better spacing on mobile */
+  .section-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Tablet and mobile responsive scaling */
+@media (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
   }
 }
 

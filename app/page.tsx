@@ -95,12 +95,18 @@ export default function Home() {
               </Link>
             </div>
             <div className="text-center mt-12">
-              <Link href="/contact">
-                <Button variant="accent" size="lg" className="group">
-                  Book a Discovery Call
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <Button 
+                variant="accent" 
+                size="lg" 
+                className="group"
+                onClick={() => {
+                  const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
+                  window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
+                }}
+              >
+                Book a Discovery Call
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
           </div>
         </section>

@@ -57,12 +57,12 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <div className="h-16 sm:h-20 md:h-24 w-auto relative flex items-center">
+                <div className="h-[90%] sm:h-[95%] md:h-[100%] w-auto relative flex items-center max-h-[80px] sm:max-h-[90px] md:max-h-[110px]">
                   <img
                     src="/ganesh-logo.png"
                     alt={`${coach.name} Logo`}
                     className="h-full w-auto object-contain"
-                    style={{ maxHeight: '100%', width: 'auto', minHeight: '60px' }}
+                    style={{ maxHeight: '100%', width: 'auto' }}
                   />
                 </div>
               </motion.div>

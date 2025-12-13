@@ -29,14 +29,14 @@ export default function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-primary mb-6 leading-tight px-4"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-6 leading-tight px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             Build Deeper, Healthier
             <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Relationships</span>
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent" style={{ backgroundSize: '200% auto', animation: 'gradient 3s ease infinite' }}>Relationships</span>
           </motion.h1>
 
           {/* Subtitle with Experience */}
@@ -47,7 +47,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
           >
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-2 max-w-3xl mx-auto px-4">
-              {coach.title} | Couples Coach | Relationship Expert
+              {coach.title}
             </p>
             <p className="text-sm sm:text-base md:text-lg text-accent font-semibold px-4">
               ✨ {coach.tagline}

@@ -72,7 +72,7 @@ export default function About() {
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="relative -mt-8 space-y-6"
+              className="relative -mt-8"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
                 <img
@@ -80,15 +80,6 @@ export default function About() {
                   alt={coach.name}
                   className="w-full h-full object-cover"
                   loading="eager"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
-              </div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
-                <img
-                  src="/ganesh-main-photo-2.png"
-                  alt={`${coach.name} - Professional Photo`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
               </div>
@@ -108,7 +99,7 @@ export default function About() {
               </p>
 
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                With <strong className="text-primary">years of experience</strong> helping couples and professionals navigate relationship challenges, 
+                With <strong className="text-primary">8+ years of experience</strong> helping couples and professionals navigate relationship challenges, 
                 I bring a practical, compassionate approach to coaching. My methods are grounded in proven 
                 frameworks that create measurable change.
               </p>

@@ -300,7 +300,10 @@ export default function ResourcesPage() {
                 variant="accent"
                 size="lg"
                 className="group"
-                onClick={() => window.location.href = "/contact"}
+                onClick={() => {
+                  const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
+                  window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
+                }}
               >
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
