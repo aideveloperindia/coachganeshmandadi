@@ -4,26 +4,27 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, Home, User, BookOpen, Users, Award, MessageSquare, Image as ImageIcon, FileText, Mail as MailIcon, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { coach } from "@/data/coach";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs" },
-  { name: "Clients", href: "/clients" },
-  { name: "Certifications", href: "/certifications" },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Resources", href: "/resources" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/", icon: Home },
+  { name: "About", href: "/about", icon: User },
+  { name: "Programs", href: "/programs", icon: BookOpen },
+  { name: "Clients", href: "/clients", icon: Users },
+  { name: "Certifications", href: "/certifications", icon: Award },
+  { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
+  { name: "Gallery", href: "/gallery", icon: ImageIcon },
+  { name: "Resources", href: "/resources", icon: FileText },
+  { name: "Contact", href: "/contact", icon: MailIcon },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPagesMenuOpen, setIsPagesMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -43,21 +44,22 @@ export default function Header() {
     <>
       {/* Top Navigation - Fixed Position */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm"
+        className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm overflow-visible"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-20 sm:h-24 md:h-28 px-4 sm:px-6">
-            {/* Logo */}
-            <Link href="/" className="flex items-center group h-full">
+            {/* Logo - Centered Vertically */}
+            <Link href="/" className="flex items-center justify-center group h-full">
               <motion.div
-                className="relative h-full flex items-center"
+                className="relative flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400 }}
+                style={{ height: '100%' }}
               >
-                <div className="h-[90%] sm:h-[95%] md:h-[100%] w-auto relative flex items-center max-h-[80px] sm:max-h-[90px] md:max-h-[110px]">
+                <div className="h-[120%] sm:h-[130%] md:h-[140%] w-auto relative flex items-center justify-center" style={{ maxHeight: '100%' }}>
                   <img
                     src="/ganesh-logo.png"
                     alt={`${coach.name} Logo`}
@@ -68,49 +70,66 @@ export default function Header() {
               </motion.div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-2">
-              {navigation.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link 
-                    key={item.name} 
-                    href={item.href}
-                  >
-                    <motion.div
-                      className={`relative px-3 py-2 rounded-lg font-medium text-sm transition-colors ${
-                        isActive
-                          ? "text-primary"
-                          : "text-gray-700 hover:text-primary"
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {item.name}
-                      {isActive && (
-                        <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent"
-                          layoutId="activeNav"
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
-                    </motion.div>
-                  </Link>
-                );
-              })}
-            </nav>
-
-            {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-2">
-              <Link href="/about">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="group border-primary text-primary hover:bg-primary hover:text-white"
+            {/* Desktop Navigation & CTA - Right Side Together */}
+            <div className="hidden lg:flex items-center gap-3">
+              {/* Pages Dropdown */}
+              <nav className="flex items-center">
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setIsPagesMenuOpen(true)}
+                  onMouseLeave={() => setIsPagesMenuOpen(false)}
                 >
-                  Know More
-                </Button>
-              </Link>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="group border-primary text-primary hover:bg-primary hover:text-white flex items-center gap-2"
+                  >
+                    Pages
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPagesMenuOpen ? 'rotate-180' : ''}`} />
+                  </Button>
+
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {isPagesMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 min-w-[200px] z-50"
+                      >
+                        {navigation.map((item, index) => {
+                          const Icon = item.icon;
+                          const isActive = pathname === item.href;
+                          return (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => setIsPagesMenuOpen(false)}
+                            >
+                              <motion.div
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.03 }}
+                                className={`flex items-center gap-3 px-4 py-3 hover:bg-primary/5 transition-colors cursor-pointer group/item ${
+                                  isActive ? 'bg-primary/10 border-l-2 border-primary' : ''
+                                }`}
+                              >
+                                <Icon className={`w-5 h-5 ${isActive ? 'text-primary' : 'text-gray-600 group-hover/item:text-primary'}`} />
+                                <span className={`font-medium ${isActive ? 'text-primary' : 'text-gray-700 group-hover/item:text-primary'}`}>
+                                  {item.name}
+                                </span>
+                              </motion.div>
+                            </Link>
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </nav>
+
+              {/* Book Session Button */}
               <Button 
                 variant="accent" 
                 size="sm" 
