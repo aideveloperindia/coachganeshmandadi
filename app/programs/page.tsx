@@ -3,11 +3,11 @@ import Header from "@/components/Header";
 import Breadcrumb from "@/components/Breadcrumb";
 import Programs from "@/components/Programs";
 import Footer from "@/components/Footer";
-import FooterNav from "@/components/FooterNav";
+import { coach } from "@/data/coach";
 
 export const metadata: Metadata = {
-  title: "Training Programs & Workshops | Gopikrishna Sarvepalli",
-  description: "Explore our comprehensive corporate training programs, leadership workshops, and personal development sessions designed to elevate individuals and organizations.",
+  title: `Programs & Workshops | ${coach.name}`,
+  description: `Explore ${coach.name}'s relationship coaching programs, couples workshops, and private sessions designed to help you reconnect and thrive.`,
 };
 
 export default function ProgramsPage() {

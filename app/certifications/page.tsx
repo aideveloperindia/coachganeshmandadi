@@ -3,11 +3,11 @@ import Header from "@/components/Header";
 import Breadcrumb from "@/components/Breadcrumb";
 import Certificates from "@/components/Certificates";
 import Footer from "@/components/Footer";
-import FooterNav from "@/components/FooterNav";
+import { coach } from "@/data/coach";
 
 export const metadata: Metadata = {
-  title: "Certifications & Recognitions | Gopikrishna Sarvepalli",
-  description: "View our prestigious certifications and industry recognitions that validate our expertise in corporate training and business coaching.",
+  title: `Certifications & Recognitions | ${coach.name}`,
+  description: `View ${coach.name}'s certifications and recognitions in relationship coaching and professional development.`,
 };
 
 export default function CertificationsPage() {

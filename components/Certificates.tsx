@@ -13,56 +13,15 @@ import {
 } from "@/components/ui/dialog";
 import { Award, CheckCircle2 } from "lucide-react";
 
-const certificates = [
-  {
-    id: 12,
-    title: "Train the Trainer",
-    organization: "Training Development Institute",
-    year: "2023",
-    description: "Certification program for developing training skills and methodologies.",
-    image: "/certificates/Train the Trainer.jpeg",
-  },
-  {
-    id: 10,
-    title: "Corporate Trainer and Coach",
-    organization: "Corporate Training Association",
-    year: "2023",
-    description: "Specialized certification in corporate training and organizational development.",
-    image: "/certificates/Corporate Trainer and Coach.jpeg",
-  },
-  {
-    id: 2,
-    title: "Certified Life and Executive Coach",
-    organization: "Professional Coaching Association",
-    year: "2023",
-    description: "Advanced certification in executive coaching and leadership development.",
-    image: "/certificates/Certified Life and Executive Coach.jpeg",
-  },
-  {
-    id: 4,
-    title: "Certified Life Coach",
-    organization: "Life Coaching Academy",
-    year: "2023",
-    description: "Professional certification in life coaching methodologies and techniques.",
-    image: "/certificates/Certified Life Coach.png",
-  },
-  {
-    id: 8,
-    title: "Certificate in Neuro Linguistic Programming",
-    organization: "NLP Institute",
-    year: "2023",
-    description: "Master certification in Neuro Linguistic Programming techniques.",
-    image: "/certificates/Certificate in neuro Linguistic Programming.png",
-  },
-  {
-    id: 11,
-    title: "Master Psychometric Counselling",
-    organization: "Psychometric Institute",
-    year: "2023",
-    description: "Advanced certification in psychometric assessment and counseling techniques.",
-    image: "/certificates/Master Psychometric Counselling.png",
-  },
-];
+// TODO: Add Ganesh Mandadi's certificates here
+const certificates: Array<{
+  id: number;
+  title: string;
+  organization: string;
+  year: string;
+  description: string;
+  image: string;
+}> = [];
 
 export default function Certificates() {
   const ref = useRef(null);
@@ -82,11 +41,11 @@ export default function Certificates() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6">
             <Award className="w-8 h-8 text-accent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
             Certifications & Recognitions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Backed by prestigious certifications and industry recognition
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+            Certifications and recognitions in relationship coaching
           </p>
           <motion.div
             className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
@@ -96,65 +55,103 @@ export default function Certificates() {
           />
         </motion.div>
 
-        {/* Certificates Grid */}
+        {/* Certificates Grid - Keep structure, show placeholder holders */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificates.map((cert, index) => (
-            <motion.div
-              key={cert.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group cursor-pointer"
-              onClick={() => setSelectedCert(cert)}
-            >
-              <div className="relative bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                {/* Verified Badge */}
-                <div className="absolute top-4 right-4 z-10 bg-green-500 text-white rounded-full p-1.5 shadow-lg">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
+          {certificates.length > 0 ? (
+            certificates.map((cert, index) => (
+              <motion.div
+                key={cert.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="group cursor-pointer"
+                onClick={() => setSelectedCert(cert)}
+              >
+                <div className="relative bg-white rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  {/* Verified Badge */}
+                  <div className="absolute top-4 right-4 z-10 bg-green-500 text-white rounded-full p-1.5 shadow-lg">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </div>
 
-                {/* Certificate Image */}
-                <div className="relative h-56 bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
-                  <Image
-                    src={cert.image}
-                    alt={cert.title}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const parent = target.parentElement;
-                      if (parent) {
-                        parent.innerHTML = '<div class="w-24 h-24 text-primary/20"><svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>';
-                      }
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="text-xs font-semibold mb-1">{cert.year}</div>
+                  {/* Certificate Image */}
+                  <div className="relative h-56 bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                    <Image
+                      src={cert.image}
+                      alt={cert.title}
+                      fill
+                      className="object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = '<div class="w-24 h-24 text-primary/20"><svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>';
+                        }
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <div className="text-xs font-semibold mb-1">{cert.year}</div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-lg font-serif font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+                      {cert.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3 font-medium">
+                      {cert.organization}
+                    </p>
+                    <p className="text-sm text-gray-500 line-clamp-2">
+                      {cert.description}
+                    </p>
+                  </div>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                    <span className="text-white font-semibold">Click to View Details</span>
                   </div>
                 </div>
+              </motion.div>
+            ))
+          ) : (
+            // Show placeholder certificate holders
+            Array.from({ length: 6 }).map((_, index) => (
+              <motion.div
+                key={`placeholder-cert-${index}`}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="group"
+              >
+                <div className="relative bg-white rounded-2xl overflow-hidden border-2 border-dashed border-gray-300 hover:border-gray-400 transition-all duration-300">
+                  {/* Placeholder Badge */}
+                  <div className="absolute top-4 right-4 z-10 bg-gray-300 rounded-full p-1.5">
+                    <Award className="w-5 h-5 text-gray-500" />
+                  </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-lg font-serif font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-                    {cert.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3 font-medium">
-                    {cert.organization}
-                  </p>
-                  <p className="text-sm text-gray-500 line-clamp-2">
-                    {cert.description}
-                  </p>
-                </div>
+                  {/* Placeholder Image Area */}
+                  <div className="relative h-56 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center">
+                    <Award className="w-16 h-16 text-gray-300" />
+                  </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-                  <span className="text-white font-semibold">Click to View Details</span>
+                  {/* Placeholder Content */}
+                  <div className="p-6">
+                    <h3 className="text-lg font-serif font-bold text-gray-400 mb-2">
+                      Certificate {index + 1}
+                    </h3>
+                    <p className="text-sm text-gray-300 mb-3 font-medium">
+                      Organization name
+                    </p>
+                    <p className="text-sm text-gray-300 line-clamp-2">
+                      Description will appear here
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))
+          )}
         </div>
       </div>
 

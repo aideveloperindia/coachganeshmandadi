@@ -9,44 +9,13 @@ import {
   DialogContent,
 } from "@/components/ui/dialog";
 
-const videos = [
-  {
-    id: 1,
-    title: "Training Session Video 1",
-    videoId: "QZhPqsd0lms",
-    thumbnail: "https://img.youtube.com/vi/QZhPqsd0lms/maxresdefault.jpg",
-  },
-  {
-    id: 2,
-    title: "Training Session Video 2",
-    videoId: "uR_jaimD8BU",
-    thumbnail: "https://img.youtube.com/vi/uR_jaimD8BU/maxresdefault.jpg",
-  },
-  {
-    id: 3,
-    title: "Training Session Video 3",
-    videoId: "NlD_QiK0zho",
-    thumbnail: "https://img.youtube.com/vi/NlD_QiK0zho/maxresdefault.jpg",
-  },
-  {
-    id: 4,
-    title: "Training Session Video 4",
-    videoId: "g4Yc4Gajt1Q",
-    thumbnail: "https://img.youtube.com/vi/g4Yc4Gajt1Q/maxresdefault.jpg",
-  },
-  {
-    id: 5,
-    title: "Training Session Video 5",
-    videoId: "-b685z1lePA",
-    thumbnail: "https://img.youtube.com/vi/-b685z1lePA/maxresdefault.jpg",
-  },
-  {
-    id: 6,
-    title: "Training Session Video 6",
-    videoId: "mu0EaGEuw6M",
-    thumbnail: "https://img.youtube.com/vi/mu0EaGEuw6M/maxresdefault.jpg",
-  },
-];
+// TODO: Add Ganesh Mandadi's videos here
+const videos: Array<{
+  id: number;
+  title: string;
+  videoId: string;
+  thumbnail: string;
+}> = [];
 
 export default function Gallery() {
   const ref = useRef(null);
@@ -66,11 +35,11 @@ export default function Gallery() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6">
             <Play className="w-8 h-8 text-accent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
-            Watch Mr. Gopikrishna in Action
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
+            Video Gallery
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience the energy and transformation of live training sessions
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+            Watch relationship coaching sessions and workshops in action
           </p>
           <motion.div
             className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
@@ -80,51 +49,86 @@ export default function Gallery() {
           />
         </motion.div>
 
-        {/* Video Grid */}
+        {/* Video Grid - Keep structure, show placeholder holders */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {videos.map((video, index) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group cursor-pointer"
-              onClick={() => setSelectedVideo(video.videoId)}
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                {/* Thumbnail */}
-                <div className="relative aspect-video">
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%236b7280'%3EVideo Thumbnail%3C/text%3E%3C/svg%3E";
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
-                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
+          {videos.length > 0 ? (
+            videos.map((video, index) => (
+              <motion.div
+                key={video.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="group cursor-pointer"
+                onClick={() => setSelectedVideo(video.videoId)}
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                  {/* Thumbnail */}
+                  <div className="relative aspect-video">
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%236b7280'%3EVideo Thumbnail%3C/text%3E%3C/svg%3E";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    
+                    {/* Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                        <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                      </div>
+                    </div>
+
+                    {/* Title Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-white font-semibold text-lg">
+                        {video.title}
+                      </h3>
                     </div>
                   </div>
 
-                  {/* Title Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-white font-semibold text-lg">
-                      {video.title}
-                    </h3>
+                  {/* Hover Border */}
+                  <div className="absolute inset-0 border-4 border-accent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                </div>
+              </motion.div>
+            ))
+          ) : (
+            // Show placeholder video holders
+            Array.from({ length: 6 }).map((_, index) => (
+              <motion.div
+                key={`placeholder-video-${index}`}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="group"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-dashed border-gray-300">
+                  {/* Placeholder Thumbnail */}
+                  <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center">
+                    <Play className="w-16 h-16 text-gray-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    
+                    {/* Placeholder Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center">
+                        <Play className="w-10 h-10 text-gray-500 ml-1" />
+                      </div>
+                    </div>
+
+                    {/* Placeholder Title */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-gray-400 font-semibold text-lg">
+                        Video {index + 1}
+                      </h3>
+                    </div>
                   </div>
                 </div>
-
-                {/* Hover Border */}
-                <div className="absolute inset-0 border-4 border-accent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))
+          )}
         </div>
       </div>
 

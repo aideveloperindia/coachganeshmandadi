@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { coach } from "@/data/coach";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -14,8 +15,10 @@ const navigation = [
   { name: "Programs", href: "/programs" },
   { name: "Clients", href: "/clients" },
   { name: "Certifications", href: "/certifications" },
+  { name: "Testimonials", href: "/testimonials" },
   { name: "Gallery", href: "/gallery" },
   { name: "Resources", href: "/resources" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -46,32 +49,34 @@ export default function Header() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-20 px-6">
+          <div className="flex items-center justify-between h-20 sm:h-24 md:h-28 px-4 sm:px-6">
             {/* Logo */}
-            <Link href="/" className="flex items-center group">
+            <Link href="/" className="flex items-center group h-full">
               <motion.div
-                className="relative"
+                className="relative h-full flex items-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <div className="w-40 h-40 relative">
-                  <Image
-                    src="/GK-logo.png"
-                    alt="Gopikrishna Sarvepalli Logo"
-                    fill
-                    className="object-contain"
-                    priority
+                <div className="h-16 sm:h-20 md:h-24 w-auto relative flex items-center">
+                  <img
+                    src="/ganesh-logo.png"
+                    alt={`${coach.name} Logo`}
+                    className="h-full w-auto object-contain"
+                    style={{ maxHeight: '100%', width: 'auto', minHeight: '60px' }}
                   />
                 </div>
               </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-4">
+            <nav className="hidden lg:flex items-center space-x-2">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (
-                  <Link key={item.name} href={item.href}>
+                  <Link 
+                    key={item.name} 
+                    href={item.href}
+                  >
                     <motion.div
                       className={`relative px-3 py-2 rounded-lg font-medium text-sm transition-colors ${
                         isActive
@@ -97,16 +102,26 @@ export default function Header() {
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-2">
-              <a href="https://share.google/Z5qTx7NLevt7fhD0M" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" className="group border-primary text-primary hover:bg-primary hover:text-white">
+              <Link href="/about">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="group border-primary text-primary hover:bg-primary hover:text-white"
+                >
                   Know More
                 </Button>
-              </a>
-              <a href="https://wa.me/919666722233" target="_blank" rel="noopener noreferrer">
-                <Button variant="accent" size="sm" className="group">
-                  Book Session
-                </Button>
-              </a>
+              </Link>
+              <Button 
+                variant="accent" 
+                size="sm" 
+                className="group"
+                onClick={() => {
+                  const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
+                  window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
+                }}
+              >
+                Book Session
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -157,14 +172,12 @@ export default function Header() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
                       >
-                        <Link href={item.href}>
-                          <div
-                            className={`block px-6 py-4 rounded-xl font-medium text-lg transition-all ${
-                              isActive
-                                ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg"
-                                : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                            }`}
-                          >
+                        <Link href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
+                          <div className={`block px-6 py-4 rounded-xl font-medium text-lg transition-all ${
+                            isActive
+                              ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg"
+                              : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                          }`}>
                             {item.name}
                           </div>
                         </Link>
@@ -175,26 +188,27 @@ export default function Header() {
 
                 {/* Mobile CTA Buttons */}
                 <div className="mt-8 space-y-3">
-                  <a
-                    href="https://share.google/Z5qTx7NLevt7fhD0M"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <Button variant="outline" size="lg" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                  <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                    >
                       Know More
                     </Button>
-                  </a>
-                  <a
-                    href="https://wa.me/919666722233"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
+                  </Link>
+                  <Button 
+                    variant="accent" 
+                    size="lg" 
+                    className="w-full"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
+                      window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
+                    }}
                   >
-                    <Button variant="accent" size="lg" className="w-full">
-                      Book a Session
-                    </Button>
-                  </a>
+                    Book a Session
+                  </Button>
                 </div>
 
               </nav>
@@ -203,8 +217,8 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* Spacer to prevent content from going under fixed header */}
-      <div className="h-20" />
+          {/* Spacer to prevent content from going under fixed header */}
+          <div className="h-20 sm:h-24 md:h-28" />
     </>
   );
 }

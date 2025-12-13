@@ -5,6 +5,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { coach } from "@/data/coach";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -18,9 +19,9 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const whatsappMessage = `Hello Sir, I would like to connect with you.%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0AMessage: ${formData.message}`;
+    const whatsappMessage = `Hello Ganesh, I would like to book a discovery call.%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0AMessage: ${formData.message}`;
     
-    window.open(`https://wa.me/919666722233?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`, "_blank");
     
     // Reset form
     setFormData({ name: "", email: "", message: "" });
@@ -36,11 +37,11 @@ export default function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
-            Let's Start Your Transformation
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
+            Let's Start Your Journey
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to elevate your team or personal growth? Get in touch today
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+            Ready to transform your relationships? Book a free discovery call today
           </p>
           <motion.div
             className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
@@ -63,8 +64,8 @@ export default function Contact() {
                 Get In Touch
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
-                Whether you're looking for corporate training programs, personal coaching, 
-                or motivational speaking engagements, we're here to help you achieve your goals.
+                Whether you're looking for couples coaching, relationship workshops, 
+                or private sessions, I'm here to help you reconnect and thrive.
               </p>
             </div>
 
@@ -76,8 +77,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-primary mb-1">Phone</div>
-                  <a href="tel:+919666722233" className="text-gray-600 hover:text-accent transition-colors">
-                    +91 96667 22233
+                  <a href={`tel:${coach.phone}`} className="text-gray-600 hover:text-accent transition-colors">
+                    {coach.phone}
                   </a>
                 </div>
               </div>
@@ -88,21 +89,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-primary mb-1">Email</div>
-                  <a href="mailto:coach@gopisarvepalli.com" className="text-gray-600 hover:text-accent transition-colors">
-                    coach@gopisarvepalli.com
+                  <a href={`mailto:${coach.email}`} className="text-gray-600 hover:text-accent transition-colors">
+                    {coach.email}
                   </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <div className="font-semibold text-primary mb-1">Location</div>
-                  <p className="text-gray-600">
-                    Visakhapatnam, Andhra Pradesh, India
-                  </p>
                 </div>
               </div>
             </div>
@@ -118,7 +107,10 @@ export default function Contact() {
               <Button
                 variant="accent"
                 size="lg"
-                onClick={() => window.open("https://wa.me/919666722233", "_blank")}
+                onClick={() => {
+                  const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
+                  window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
+                }}
                 className="w-full"
               >
                 Chat on WhatsApp
@@ -174,7 +166,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-accent focus:outline-none transition-colors resize-none"
-                  placeholder="Tell us about your training needs or questions..."
+                  placeholder="Tell us about your relationship goals or questions..."
                 />
               </div>
 

@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { coach } from "@/data/coach";
 
 const socialLinks = [
-  { icon: Linkedin, url: "https://www.linkedin.com/in/gopikrishna-sarvepalli-420691a/", label: "LinkedIn" },
-  { icon: Youtube, url: "https://www.youtube.com/@Yourcoachandmentor", label: "YouTube" },
-  { icon: Instagram, url: "https://www.instagram.com/venkatagopikrishna/", label: "Instagram" },
-  { icon: Facebook, url: "https://www.facebook.com/profile.php?id=61560060908547", label: "Facebook" },
-];
+  { icon: Linkedin, url: coach.social.linkedin || "#", label: "LinkedIn" },
+  { icon: Youtube, url: coach.social.youtube || "#", label: "YouTube" },
+  { icon: Instagram, url: coach.social.instagram || "#", label: "Instagram" },
+].filter(link => link.url !== "#");
 
 export default function Footer() {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
@@ -28,7 +28,7 @@ export default function Footer() {
     <>
       {/* Floating WhatsApp Button */}
       <motion.a
-        href="https://wa.me/919666722233"
+        href={`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.')}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-colors group"
@@ -66,19 +66,19 @@ export default function Footer() {
             {/* Brand Section */}
             <div>
               <h3 className="text-2xl font-serif font-bold mb-4">
-                Gopikrishna Sarvepalli
+                {coach.name}
               </h3>
               <p className="text-white/80 mb-6 leading-relaxed">
-                Transforming lives and organizations through powerful training programs and coaching for over 29 years.
+                {coach.brief}
               </p>
               <div className="space-y-3">
-                <a href="tel:+919666722233" className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
+                <a href={`tel:${coach.phone}`} className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
                   <Phone className="w-5 h-5" />
-                  +91 96667 22233
+                  {coach.phone}
                 </a>
-                <a href="mailto:coach@gopisarvepalli.com" className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
+                <a href={`mailto:${coach.email}`} className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
                   <Mail className="w-5 h-5" />
-                  coach@gopisarvepalli.com
+                  {coach.email}
                 </a>
               </div>
             </div>
@@ -88,16 +88,20 @@ export default function Footer() {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {[
-                  { label: "About", href: "/about" },
-                  { label: "Programs", href: "/programs" },
-                  { label: "Clients", href: "/clients" },
-                  { label: "Certificates", href: "/certifications" },
-                  { label: "Gallery", href: "/gallery" },
-                  { label: "Contact", href: "/contact" },
+                  { label: "About", href: "#about" },
+                  { label: "Programs", href: "#programs" },
+                  { label: "Testimonials", href: "#testimonials" },
+                  { label: "Free Guide", href: "#free-guide" },
+                  { label: "Contact", href: "#contact" },
                 ].map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.querySelector(link.href);
+                        element?.scrollIntoView({ behavior: "smooth" });
+                      }}
                       className="text-white/80 hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
                     >
                       {link.label}
@@ -111,12 +115,12 @@ export default function Footer() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Our Programs</h4>
               <ul className="space-y-2 text-white/80">
-                <li>Personal Effectiveness</li>
-                <li>Leadership & Teamwork</li>
-                <li>Sales Training</li>
-                <li>Communication Skills</li>
-                <li>Motivational Programs</li>
-                <li>Organizational Development</li>
+                <li>Couples Communication Mastery</li>
+                <li>Conflict Resolution Intensive</li>
+                <li>Private Coaching</li>
+                <li>Corporate Workshops</li>
+                <li>Couple Retreats</li>
+                <li>Online Sessions</li>
               </ul>
             </div>
           </div>
@@ -129,10 +133,10 @@ export default function Footer() {
             {/* Quote */}
             <div className="text-center md:text-left">
               <p className="text-accent font-serif text-lg italic mb-2">
-                "Your Success is Our Mission"
+                "{coach.tagline}"
               </p>
               <p className="text-white/60 text-sm">
-                © 2025 Gopikrishna Sarvepalli. All rights reserved.
+                © {new Date().getFullYear()} {coach.name}. All rights reserved.
               </p>
             </div>
 

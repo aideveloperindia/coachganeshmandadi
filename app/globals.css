@@ -31,11 +31,31 @@
   }
   
   .section-padding {
-    @apply py-20 px-6 md:px-12 lg:px-24;
+    @apply py-12 px-4 sm:py-16 sm:px-6 md:py-20 md:px-12 lg:px-24;
   }
   
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Ensure text doesn't overflow on small screens */
+  h1, h2, h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
   }
 }
 

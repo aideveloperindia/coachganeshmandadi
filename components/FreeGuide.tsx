@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, CheckCircle2, Gift } from "lucide-react";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import { coach } from "@/data/coach";
 
 export default function FreeGuide() {
   const ref = useRef(null);
@@ -28,7 +29,7 @@ export default function FreeGuide() {
       const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
       // Title
-      page.drawText('Life Lessons Guide', {
+      page.drawText('7 Simple Practices to Reconnect', {
         x: 50,
         y: height - 80,
         size: 32,
@@ -45,16 +46,15 @@ export default function FreeGuide() {
         color: rgb(0.83, 0.69, 0.22), // Accent color
       });
 
-      // Content
+      // Content - Relationship Practices
       const content = [
-        { title: '1. The Power of Clarity', text: 'Success begins with clear goals. Define what you want, why you want it, and create a roadmap to achieve it.' },
-        { title: '2. Consistency Over Intensity', text: 'Small, consistent actions compound over time. Daily progress beats sporadic bursts of effort.' },
-        { title: '3. Communication is Connection', text: 'Master the art of listening first. True communication builds bridges and transforms relationships.' },
-        { title: '4. Embrace Continuous Learning', text: 'Growth never stops. Commit to learning something new every day, no matter how small.' },
-        { title: '5. Leadership Starts Within', text: 'Lead yourself before leading others. Self-discipline and integrity are the foundations of leadership.' },
-        { title: '6. Resilience is Your Superpower', text: 'Challenges are opportunities in disguise. Build mental toughness through adversity.' },
-        { title: '7. Value Relationships', text: 'Your network is your net worth. Invest in genuine, meaningful relationships.' },
-        { title: '8. Take Action Now', text: 'The perfect time never comes. Start where you are with what you have.' },
+        { title: '1. The 10-Minute Daily Check-In', text: 'Set aside 10 minutes each day to connect with your partner. Ask one open-ended question like "How are you feeling today?" or "What\'s on your mind?" Listen without interrupting or offering solutions. This creates space for emotional intimacy.' },
+        { title: '2. The Pause & Reflect Method', text: 'When conflict arises, pause before responding. Take three deep breaths and ask yourself: "What am I really feeling?" and "What does my partner need right now?" This prevents reactive responses and opens space for understanding.' },
+        { title: '3. The 2-Rule Conversation', text: 'Rule 1: One person speaks at a time. Rule 2: The listener repeats back what they heard before responding. This simple structure transforms arguments into productive discussions.' },
+        { title: '4. The Safe Word', text: 'Agree on a word or phrase that either partner can use to pause a conversation when emotions are too high. When the safe word is used, both commit to taking a 20-minute break before continuing.' },
+        { title: '5. The Gratitude Night', text: 'Once a week, share three things you appreciate about your partner. Be specific: "I appreciate how you made time to listen when I was stressed about work." This builds positive connection.' },
+        { title: '6. Intentional Listening', text: 'When your partner is speaking, put away distractions. Make eye contact. Ask follow-up questions. Show you\'re truly present. This simple act of attention is a powerful gift.' },
+        { title: '7. Weekly Relationship Review', text: 'Set aside 30 minutes each week to discuss: What went well? What needs attention? What would you like more of? This creates a regular space for connection and growth.' },
       ];
 
       let yPosition = height - 180;
@@ -109,7 +109,7 @@ export default function FreeGuide() {
       });
 
       // Footer
-      page.drawText('© 2025 Gopikrishna Sarvepalli | Built by AI Developer India', {
+      page.drawText(`© ${new Date().getFullYear()} ${coach.name}`, {
         x: 50,
         y: 50,
         size: 10,
@@ -117,7 +117,7 @@ export default function FreeGuide() {
         color: rgb(0.5, 0.5, 0.5),
       });
 
-      page.drawText('Contact: +91 96667 22233 | www.gopikrishna.in', {
+      page.drawText(`Contact: ${coach.phone} | ${coach.email}`, {
         x: 50,
         y: 35,
         size: 10,
@@ -162,7 +162,7 @@ export default function FreeGuide() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `Life-Lessons-Guide-${formData.name.replace(/\s+/g, '-')}.pdf`;
+      link.download = `Reconnect_Guide_${formData.name.replace(/\s+/g, '_')}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -173,7 +173,8 @@ export default function FreeGuide() {
 
       // Optional: Redirect to WhatsApp
       setTimeout(() => {
-        window.open(`https://wa.me/919666722233?text=Hi, I just downloaded the Life Lessons Guide!`, "_blank");
+        const message = encodeURIComponent('Hello Ganesh, I just downloaded the free guide and would like to book a discovery call.');
+        window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
       }, 1000);
 
     } catch (error) {
@@ -204,11 +205,11 @@ export default function FreeGuide() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-accent rounded-full mb-6">
               <Gift className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
-              Get Your Free Life Lessons Guide
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
+              7 Simple Practices to Reconnect Today
             </h2>
-            <p className="text-xl text-gray-600">
-              Personalized insights to accelerate your personal and professional growth
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
+              Get your free personalized guide with actionable practices to improve your relationships
             </p>
             <motion.div
               className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
@@ -232,13 +233,13 @@ export default function FreeGuide() {
               </h3>
 
               {[
-                'The Power of Clarity in Goal Setting',
-                'Building Unshakeable Consistency',
-                'Mastering Effective Communication',
-                'Developing True Leadership from Within',
-                'Cultivating Resilience & Mental Strength',
-                'Creating Meaningful Relationships',
-                'Taking Decisive Action Today',
+                'The 10-Minute Daily Check-In',
+                'The Pause & Reflect Method',
+                'The 2-Rule Conversation',
+                'The Safe Word',
+                'The Gratitude Night',
+                'Intentional Listening',
+                'Weekly Relationship Review',
               ].map((benefit, index) => (
                 <motion.div
                   key={benefit}
@@ -324,10 +325,10 @@ export default function FreeGuide() {
                     Success!
                   </h3>
                   <p className="text-green-700 mb-4">
-                    Your personalized Life Lessons Guide is downloading now.
+                    Your personalized Reconnect Guide is downloading now.
                   </p>
                   <p className="text-sm text-gray-600">
-                    We're redirecting you to WhatsApp to stay connected...
+                    We're redirecting you to WhatsApp to book your discovery call...
                   </p>
                   <Button
                     variant="outline"

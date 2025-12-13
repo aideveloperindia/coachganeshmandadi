@@ -1,26 +1,34 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { coach } from "@/data/coach";
 
 export const metadata: Metadata = {
-  title: "Gopikrishna Sarvepalli - Corporate Trainer & Business Coach",
-  description: "Transforming Potential into Performance. 29 Years of Excellence | 44,000+ Lives Transformed | Expert Corporate Trainer & Business Coach",
-  keywords: ["corporate training", "business coach", "OD consultant", "leadership training", "personal development"],
-  authors: [{ name: "Beyondx Informatics Analytics Pvt. Ltd." }],
+  title: `${coach.name} - ${coach.title}`,
+  description: `${coach.brief} Book a free discovery call.`,
+  keywords: ["relationship coach", "couples therapy", "communication", "conflict resolution", "relationship counseling"],
+  authors: [{ name: coach.name }],
   openGraph: {
-    title: "Gopikrishna Sarvepalli - Corporate Trainer & Business Coach",
-    description: "Transforming Potential into Performance. 29 Years of Excellence | 44,000+ Lives Transformed",
+    title: `${coach.name} - ${coach.title}`,
+    description: coach.brief,
     type: "website",
     locale: "en_US",
-    siteName: "Gopikrishna Sarvepalli",
+    siteName: coach.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gopikrishna Sarvepalli - Corporate Trainer & Business Coach",
-    description: "Transforming Potential into Performance. 29 Years of Excellence | 44,000+ Lives Transformed",
+    title: `${coach.name} - ${coach.title}`,
+    description: coach.brief,
   },
   icons: {
     icon: "/favicon.ico",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({

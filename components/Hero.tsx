@@ -3,13 +3,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { coach } from "@/data/coach";
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleWhatsAppClick = () => {
+    const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
+    window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
   };
 
   return (
@@ -25,14 +29,14 @@ export default function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-primary mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-primary mb-6 leading-tight px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Transforming Potential
-            <br />
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">into Performance</span>
+            Build Deeper, Healthier
+            <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Relationships</span>
           </motion.h1>
 
           {/* Subtitle with Experience */}
@@ -42,42 +46,38 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-xl md:text-2xl text-gray-700 mb-2 max-w-3xl mx-auto">
-              Corporate Trainer | Executive & Sales Coach | OD Consultant
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-2 max-w-3xl mx-auto px-4">
+              {coach.title} | Couples Coach | Relationship Expert
             </p>
-            <p className="text-lg text-accent font-semibold">
-              ✨ Transforming Lives Since 1996
+            <p className="text-sm sm:text-base md:text-lg text-accent font-semibold px-4">
+              ✨ {coach.tagline}
             </p>
           </motion.div>
 
           {/* Stats */}
           <motion.div
-            className="flex flex-wrap justify-center gap-6 md:gap-8 mb-12 text-primary"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-12 text-primary px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="text-center">
-              <div className="text-4xl font-heading font-bold">29</div>
-              <div className="text-sm text-gray-600">Years of Excellence</div>
+            <div className="text-center min-w-[100px]">
+              <div className="text-3xl sm:text-4xl font-heading font-bold">8+</div>
+              <div className="text-xs sm:text-sm text-gray-600">Years Experience</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-heading font-bold">45,000+</div>
-              <div className="text-sm text-gray-600">Participants Trained</div>
+            <div className="text-center min-w-[100px]">
+              <div className="text-3xl sm:text-4xl font-heading font-bold">200+</div>
+              <div className="text-xs sm:text-sm text-gray-600">Couples Coached</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-heading font-bold">470+</div>
-              <div className="text-sm text-gray-600">Sessions Conducted</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-heading font-bold">4.8★</div>
-              <div className="text-sm text-gray-600">Average Rating</div>
+            <div className="text-center min-w-[100px]">
+              <div className="text-3xl sm:text-4xl font-heading font-bold">4.8★</div>
+              <div className="text-xs sm:text-sm text-gray-600">Average Rating</div>
             </div>
           </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -85,17 +85,17 @@ export default function Hero() {
             <Button
               variant="accent"
               size="lg"
-              onClick={() => window.open("https://wa.me/919666722233", "_blank")}
-              className="group"
+              onClick={handleWhatsAppClick}
+              className="group w-full sm:w-auto"
             >
-              Book a Session
+              <span className="text-sm sm:text-base">Book a Free Discovery Call</span>
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               variant="outline"
               size="lg"
               onClick={() => scrollToSection("free-guide")}
-              className="group"
+              className="group w-full sm:w-auto"
             >
               Get Free Guide
               <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />

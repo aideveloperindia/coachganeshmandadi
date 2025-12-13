@@ -3,11 +3,11 @@ import Header from "@/components/Header";
 import Breadcrumb from "@/components/Breadcrumb";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
-import FooterNav from "@/components/FooterNav";
+import { coach } from "@/data/coach";
 
 export const metadata: Metadata = {
-  title: "Video Gallery | Watch Training Sessions in Action",
-  description: "Experience the energy and transformation of live training sessions. Watch videos of Mr. Gopikrishna Sarvepalli in action.",
+  title: `Video Gallery | ${coach.name}`,
+  description: `Watch videos of ${coach.name} in action - training sessions, workshops, and relationship coaching insights.`,
 };
 
 export default function GalleryPage() {

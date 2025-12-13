@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Quote } from "lucide-react";
+import { coach } from "@/data/coach";
 
 export default function BrandStory() {
   const ref = useRef(null);
@@ -41,41 +42,41 @@ export default function BrandStory() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-2xl md:text-3xl font-bold text-accent mb-4">
-              "Empowering People. Transforming Organizations."
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-4 px-4">
+              "{coach.tagline}"
             </p>
           </motion.div>
 
           {/* Title */}
           <motion.h2
-            className="text-3xl md:text-5xl font-heading font-bold mb-6"
+            className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-6 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4 }}
           >
-            The Mission Behind the Training
+            Our Mission
           </motion.h2>
 
           {/* Main Quote */}
           <motion.p
-            className="text-xl md:text-2xl leading-relaxed mb-8 font-light italic"
+            className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-8 font-light italic px-4"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.6 }}
           >
-            "To inspire, empower, and transform individuals and institutions to live, lead, and perform with excellence."
+            "To help couples and professionals reconnect, restore trust, and build relationships that thrive."
           </motion.p>
 
           {/* Description */}
           <motion.p
-            className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed px-4"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.8 }}
           >
-            Our approach goes beyond traditional training. We believe in creating lasting transformations 
-            that empower individuals to reach their full potential, build meaningful relationships, and 
-            achieve sustainable success in both their personal and professional lives.
+            {coach.brief} We believe that every relationship has the potential for deeper connection 
+            when equipped with the right tools and guidance. Our approach combines practical frameworks 
+            with compassionate support to create lasting change.
           </motion.p>
 
           {/* Decorative Line */}

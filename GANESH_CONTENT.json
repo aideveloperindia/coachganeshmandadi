@@ -1,0 +1,91 @@
+{
+  "coach": {
+    "name": "Coach Ganesh Mandadi",
+    "title": "Relationship Coach",
+    "tagline": "Reconnect. Restore. Thrive.",
+    "brief": "Practical coaching and workshops to help couples, leaders and professionals restore connection, resolve conflict and build lasting trust.",
+    "phone": "+91XXXXXXXXXX",
+    "whatsapp": "+91XXXXXXXXXX",
+    "email": "hello@ganeshmandadi.store",
+    "social": {
+      "linkedin": "",
+      "youtube": "",
+      "instagram": ""
+    }
+  },
+  "programs": [
+    {
+      "id": "p1",
+      "title": "Couples Communication Mastery",
+      "duration": "2 days",
+      "short": "Interactive workshop to rebuild communication and intimacy.",
+      "bullets": ["Non-defensive speaking", "Active listening practice", "Daily rituals to rebuild trust"]
+    },
+    {
+      "id": "p2",
+      "title": "Conflict Resolution Intensive",
+      "duration": "1 day",
+      "short": "Practical tools to de-escalate arguments and reconnect quickly.",
+      "bullets": ["De-escalation frameworks", "Safe-word method", "Role-play exercises"]
+    },
+    {
+      "id": "p3",
+      "title": "Private Coaching (6-session roadmap)",
+      "duration": "Tailored",
+      "short": "One-on-one coaching to resolve deep patterns and rebuild relationships.",
+      "bullets": ["Assessment & plan", "Weekly accountability", "Practical homework"]
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "text": "Ganesh saved our marriage. The tools he taught are practical and simple — we now talk differently. Highly recommend.",
+      "author": "M & S",
+      "meta": "Couple, Hyderabad",
+      "rating": 4.8,
+      "proofs": []
+    },
+    {
+      "id": 2,
+      "text": "A practical, compassionate coach. We saw measurable change after 4 sessions.",
+      "author": "Ravi K.",
+      "meta": "Individual Client",
+      "rating": 4.7,
+      "proofs": []
+    },
+    {
+      "id": 3,
+      "text": "The workshop transformed how we communicate. We're closer than ever.",
+      "author": "Priya & Amit",
+      "meta": "Couple, Bangalore",
+      "rating": 4.9,
+      "proofs": []
+    }
+  ],
+  "photos": [
+    {
+      "id": "g1",
+      "src": "/photos/workshop-01.jpg",
+      "caption": "Couples workshop - Hyderabad"
+    },
+    {
+      "id": "g2",
+      "src": "/photos/workshop-02.jpg",
+      "caption": "Group session - Bangalore"
+    },
+    {
+      "id": "g3",
+      "src": "/photos/workshop-03.jpg",
+      "caption": "Corporate workshop"
+    },
+    {
+      "id": "g4",
+      "src": "/photos/workshop-04.jpg",
+      "caption": "One-on-one coaching session"
+    }
+  ],
+  "videos": [],
+  "certificates": [],
+  "notes": "Content extracted from existing coachganesh project. Update with actual content from www.coachganeshmandadi.com"
+}
+
