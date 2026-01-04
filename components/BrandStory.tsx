@@ -11,11 +11,11 @@ export default function BrandStory() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding bg-gradient-to-br from-primary to-primary/90 text-white relative overflow-hidden" ref={ref}>
+    <section className="section-padding bg-gradient-to-br from-royal-indigo via-royal-indigo/95 to-royal-indigo/90 text-ivory-white relative overflow-hidden" ref={ref}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-magenta rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-golden-amber rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -30,7 +30,7 @@ export default function BrandStory() {
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-accent rounded-full mb-8"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-magenta to-golden-amber rounded-full mb-8"
           >
             <Quote className="w-10 h-10 text-white" />
           </motion.div>
@@ -42,7 +42,7 @@ export default function BrandStory() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-4 px-4">
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-bright-marigold mb-4 px-4">
               "{coach.tagline}"
             </p>
           </motion.div>
@@ -86,9 +86,9 @@ export default function BrandStory() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 1 }}
           >
-            <div className="w-2 h-2 bg-accent rounded-full" />
-            <div className="w-16 h-2 bg-accent rounded-full" />
-            <div className="w-2 h-2 bg-accent rounded-full" />
+            <div className="w-2 h-2 bg-bright-marigold rounded-full" />
+            <div className="w-16 h-2 bg-bright-marigold rounded-full" />
+            <div className="w-2 h-2 bg-bright-marigold rounded-full" />
           </motion.div>
         </motion.div>
       </div>

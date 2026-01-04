@@ -127,7 +127,8 @@ export default function ResourcesPage() {
                           className="w-full group-hover:bg-primary group-hover:text-white transition-all"
                           onClick={() => {
                             if (resource.downloadType === 'video') {
-                              window.open('https://wa.me/919666722233?text=Hi, I would like to access the video training series!', '_blank');
+                              const message = encodeURIComponent('Hi, I would like to access the video training series!');
+                              window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, '_blank');
                             } else {
                               handleDownload(resource.downloadType);
                             }
@@ -230,7 +231,8 @@ export default function ResourcesPage() {
                         className="group-hover:text-accent"
                         onClick={() => {
                           // For now, open WhatsApp for full article access
-                          window.open('https://wa.me/919666722233?text=Hi, I would like to read the full article: ' + article.title, '_blank');
+                          const message = encodeURIComponent('Hi, I would like to read the full article: ' + article.title);
+                          window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, '_blank');
                         }}
                       >
                         Read More

@@ -9,14 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#0F172A", // Sophisticated dark slate
-        accent: "#3B82F6", // Vibrant modern blue
-        secondary: "#8B5CF6", // Premium purple
+        primary: "#4B0082", // ROYAL INDIGO
+        accent: "#C1275A", // MAGENTA
+        secondary: "#F5A623", // GOLDEN AMBER
+        "royal-indigo": "#4B0082",
+        "magenta": "#C1275A",
+        "golden-amber": "#F5A623",
+        "ivory-white": "#F3F6F1",
+        "warm-charcoal": "#2D2D2D",
+        "soft-blush": "#F7D9E3",
+        "bright-marigold": "#FFB533",
         success: "#10B981", // Fresh emerald
         warning: "#F59E0B", // Warm amber
-        text: "#0F172A", // Rich dark slate
+        text: "#2D2D2D", // WARM CHARCOAL
         muted: "#64748B", // Professional slate gray
-        light: "#F8FAFC", // Clean light gray
+        light: "#F3F6F1", // IVORY WHITE
       },
       fontFamily: {
         heading: ["Montserrat", "sans-serif"],

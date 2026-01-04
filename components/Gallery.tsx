@@ -9,13 +9,68 @@ import {
   DialogContent,
 } from "@/components/ui/dialog";
 
-// TODO: Add Ganesh Mandadi's videos here
+// Ganesh Mandadi's YouTube videos
 const videos: Array<{
   id: number;
   title: string;
   videoId: string;
   thumbnail: string;
-}> = [];
+}> = [
+  {
+    id: 1,
+    title: "Relationship Coaching Insights",
+    videoId: "Upjc9dNqx8o",
+    thumbnail: "https://img.youtube.com/vi/Upjc9dNqx8o/maxresdefault.jpg"
+  },
+  {
+    id: 2,
+    title: "Relationship Coaching Session",
+    videoId: "FXFjiTnNCY0",
+    thumbnail: "https://img.youtube.com/vi/FXFjiTnNCY0/maxresdefault.jpg"
+  },
+  {
+    id: 3,
+    title: "Couples Communication Workshop",
+    videoId: "zxpu7iyfTZ8",
+    thumbnail: "https://img.youtube.com/vi/zxpu7iyfTZ8/maxresdefault.jpg"
+  },
+  {
+    id: 4,
+    title: "Building Trust in Relationships",
+    videoId: "BmoYik6k5M4",
+    thumbnail: "https://img.youtube.com/vi/BmoYik6k5M4/maxresdefault.jpg"
+  },
+  {
+    id: 5,
+    title: "Life Balance Coaching",
+    videoId: "T3TZQwbM4aE",
+    thumbnail: "https://img.youtube.com/vi/T3TZQwbM4aE/maxresdefault.jpg"
+  },
+  {
+    id: 6,
+    title: "Relationship Transformation",
+    videoId: "JsAhkrryyMs",
+    thumbnail: "https://img.youtube.com/vi/JsAhkrryyMs/maxresdefault.jpg"
+  },
+  {
+    id: 7,
+    title: "SoulSync Relationships",
+    videoId: "vZHC79Jw3fo",
+    thumbnail: "https://img.youtube.com/vi/vZHC79Jw3fo/maxresdefault.jpg"
+  },
+  {
+    id: 8,
+    title: "Couples Retreat Highlights",
+    videoId: "3ZdgTZQRh-E",
+    thumbnail: "https://img.youtube.com/vi/3ZdgTZQRh-E/maxresdefault.jpg"
+  },
+  {
+    id: 9,
+    title: "Relationship Coaching Workshop",
+    videoId: "VXReh6Dx7aU",
+    thumbnail: "https://img.youtube.com/vi/VXReh6Dx7aU/maxresdefault.jpg"
+  }
+];
 
 export default function Gallery() {
   const ref = useRef(null);
@@ -23,7 +78,7 @@ export default function Gallery() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <section id="gallery" className="section-padding bg-gradient-to-br from-gray-50 to-white" ref={ref}>
+    <section id="gallery" className="section-padding bg-gradient-to-br from-ivory-white to-soft-blush/30" ref={ref}>
       <div className="container-custom">
         {/* Section Title */}
         <motion.div
@@ -32,17 +87,17 @@ export default function Gallery() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6">
-            <Play className="w-8 h-8 text-accent" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-magenta/20 to-golden-amber/20 rounded-full mb-6">
+            <Play className="w-8 h-8 text-royal-indigo" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-royal-indigo mb-4 px-4">
             Video Gallery
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-warm-charcoal max-w-3xl mx-auto px-4">
             Watch relationship coaching sessions and workshops in action
           </p>
           <motion.div
-            className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
+            className="w-24 h-1 bg-gradient-to-r from-magenta to-golden-amber mx-auto mt-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -77,7 +132,7 @@ export default function Gallery() {
                     
                     {/* Play Button */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                      <div className="w-20 h-20 bg-gradient-to-r from-magenta to-golden-amber rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
                         <Play className="w-10 h-10 text-white ml-1" fill="white" />
                       </div>
                     </div>
@@ -91,7 +146,7 @@ export default function Gallery() {
                   </div>
 
                   {/* Hover Border */}
-                  <div className="absolute inset-0 border-4 border-accent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                  <div className="absolute inset-0 border-4 border-royal-indigo opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
                 </div>
               </motion.div>
             ))

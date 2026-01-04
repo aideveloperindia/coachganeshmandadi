@@ -7,9 +7,12 @@ import Image from "next/image";
 import { coach } from "@/data/coach";
 
 const socialLinks = [
-  { icon: Linkedin, url: coach.social.linkedin || "#", label: "LinkedIn" },
-  { icon: Youtube, url: coach.social.youtube || "#", label: "YouTube" },
   { icon: Instagram, url: coach.social.instagram || "#", label: "Instagram" },
+  { icon: Facebook, url: coach.social.facebook || "#", label: "Facebook" },
+  { icon: Youtube, url: coach.social.youtube || "#", label: "YouTube" },
+  { icon: Linkedin, url: coach.social.linkedin || "#", label: "LinkedIn" },
+  { icon: MessageCircle, url: coach.social.whatsapp || `https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}`, label: "WhatsApp" },
+  { icon: Mail, url: `mailto:${coach.email}`, label: "Email" },
 ].filter(link => link.url !== "#");
 
 export default function Footer() {
@@ -28,7 +31,7 @@ export default function Footer() {
     <>
       {/* Floating WhatsApp Button */}
       <motion.a
-        href={`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.')}`}
+        href={coach.social.whatsapp || `https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.')}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-colors group"
@@ -50,15 +53,15 @@ export default function Footer() {
       </motion.a>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-primary to-primary/95 text-white relative overflow-hidden">
+      <footer className="bg-gradient-to-br from-royal-indigo to-royal-indigo/95 text-ivory-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-magenta rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-golden-amber rounded-full blur-3xl" />
         </div>
 
         {/* Top Border */}
-        <div className="h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
+        <div className="h-1 bg-gradient-to-r from-transparent via-bright-marigold to-transparent" />
 
         <div className="container-custom section-padding relative z-10">
           {/* Main Footer Content */}
@@ -72,11 +75,11 @@ export default function Footer() {
                 {coach.brief}
               </p>
               <div className="space-y-3">
-                <a href={`tel:${coach.phone}`} className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
+                <a href={`tel:${coach.phone}`} className="flex items-center gap-3 text-ivory-white/80 hover:text-bright-marigold transition-colors">
                   <Phone className="w-5 h-5" />
                   {coach.phone}
                 </a>
-                <a href={`mailto:${coach.email}`} className="flex items-center gap-3 text-white/80 hover:text-accent transition-colors">
+                <a href={`mailto:${coach.email}`} className="flex items-center gap-3 text-ivory-white/80 hover:text-bright-marigold transition-colors">
                   <Mail className="w-5 h-5" />
                   {coach.email}
                 </a>
@@ -91,7 +94,7 @@ export default function Footer() {
                   { label: "About", href: "#about" },
                   { label: "Programs", href: "#programs" },
                   { label: "Testimonials", href: "#testimonials" },
-                  { label: "Free Guide", href: "#free-guide" },
+                  { label: "Gallery", href: "#gallery" },
                   { label: "Contact", href: "#contact" },
                 ].map((link) => (
                   <li key={link.label}>
@@ -102,7 +105,7 @@ export default function Footer() {
                         const element = document.querySelector(link.href);
                         element?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="text-white/80 hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                      className="text-ivory-white/80 hover:text-bright-marigold transition-colors inline-block hover:translate-x-1 duration-200"
                     >
                       {link.label}
                     </a>
@@ -132,7 +135,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Quote */}
             <div className="text-center md:text-left">
-              <p className="text-accent font-serif text-lg italic mb-2">
+              <p className="text-bright-marigold font-serif text-lg italic mb-2">
                 "{coach.tagline}"
               </p>
               <p className="text-white/60 text-sm">
@@ -150,7 +153,7 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                    className="w-10 h-10 bg-ivory-white/10 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-magenta hover:to-golden-amber transition-colors"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
@@ -170,7 +173,7 @@ export default function Footer() {
                 href="https://aideveloperindia.store/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-accent transition-colors group"
+                className="flex items-center gap-2 hover:text-bright-marigold transition-colors group"
               >
                 <div className="w-4 h-4 relative group-hover:scale-110 transition-transform">
                   <Image

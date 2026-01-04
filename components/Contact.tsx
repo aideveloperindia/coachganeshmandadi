@@ -38,10 +38,10 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
-            Let's Start Your Journey
+            Let's Start Your Healing Journey
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Ready to transform your relationships? Book a free discovery call today
+            Ready to transform your relationships? Book your discovery call today
           </p>
           <motion.div
             className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"

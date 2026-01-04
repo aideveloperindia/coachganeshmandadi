@@ -21,9 +21,9 @@ const iconMap: Record<string, any> = {
 };
 
 const colorMap: Record<string, string> = {
-  "p1": "from-blue-500 to-blue-600",
-  "p2": "from-pink-500 to-pink-600",
-  "p3": "from-purple-500 to-purple-600",
+  "p1": "from-royal-indigo to-royal-indigo/80",
+  "p2": "from-magenta to-magenta/80",
+  "p3": "from-golden-amber to-bright-marigold",
 };
 
 export default function Programs() {
@@ -31,12 +31,11 @@ export default function Programs() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const handleEnquire = (programTitle: string) => {
-    const message = encodeURIComponent(`Hello Ganesh, I'm interested in learning more about "${programTitle}".`);
-    window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, '_blank');
+    window.open('https://rer6xajw.paperform.co/', '_blank');
   };
 
   return (
-    <section id="programs" className="section-padding bg-gradient-to-br from-gray-50 to-white" ref={ref}>
+    <section id="programs" className="section-padding bg-gradient-to-br from-ivory-white to-soft-blush/30" ref={ref}>
       <div className="container-custom">
         {/* Section Title */}
         <motion.div
@@ -45,7 +44,7 @@ export default function Programs() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-royal-indigo mb-4 px-4">
             Programs & Workshops
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
@@ -73,7 +72,7 @@ export default function Programs() {
               >
                 <Card className="h-full group hover:border-accent/50 cursor-pointer relative overflow-hidden">
                   {/* Duration Badge */}
-                  <div className="absolute top-4 right-4 z-10 bg-accent text-white rounded-full px-3 py-1 shadow-lg font-bold text-xs">
+                  <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-magenta to-golden-amber text-white rounded-full px-3 py-1 shadow-lg font-bold text-xs">
                     {program.duration}
                   </div>
                   {/* Accent border on hover */}

@@ -8,8 +8,9 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 11.8%;
-    --primary: 210 100% 15.3%;
-    --accent: 45 84% 51%;
+    --primary: 271 100% 25.5%; /* ROYAL INDIGO #4B0082 */
+    --accent: 340 68% 46%; /* MAGENTA #C1275A */
+    --secondary: 38 92% 55%; /* GOLDEN AMBER #F5A623 */
   }
   
   * {
@@ -44,6 +45,17 @@
     }
     50% {
       background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1);
     }
   }
   

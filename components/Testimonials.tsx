@@ -6,16 +6,38 @@ import { useRef, useState, useEffect } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials as testimonialsData } from "@/data/testimonials";
 
+// Distinct emojis for females and males - assigned in order
+const femaleEmojis = ["👩‍🦰", "👩‍🦱", "👩‍🦳", "👩‍💼", "👩‍🎓", "👩‍⚕️", "👩‍🔬"];
+const maleEmojis = ["👨‍🦰", "👨‍🦱", "👨‍💼", "👨‍🎓", "👨‍⚕️"];
+
 // Transform testimonials data to match component structure
-const testimonials = testimonialsData.map((testimonial) => ({
-  id: testimonial.id,
-  name: testimonial.author,
-  position: testimonial.meta,
-  company: "",
-  rating: Math.round(testimonial.rating),
-  text: testimonial.text,
-  image: testimonial.author.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase(),
-}));
+let femaleCount = 0;
+let maleCount = 0;
+
+const testimonials = testimonialsData.map((testimonial) => {
+  const isFemale = testimonial.gender === "female";
+  let emoji;
+  
+  if (isFemale) {
+    emoji = femaleEmojis[femaleCount % femaleEmojis.length];
+    femaleCount++;
+  } else {
+    emoji = maleEmojis[maleCount % maleEmojis.length];
+    maleCount++;
+  }
+  
+  return {
+    id: testimonial.id,
+    name: testimonial.author,
+    position: testimonial.meta,
+    title: testimonial.title || "",
+    company: "",
+    rating: Math.round(testimonial.rating),
+    text: testimonial.text,
+    gender: testimonial.gender || "male",
+    emoji: emoji,
+  };
+});
 
 
 export default function Testimonials() {
@@ -44,11 +66,11 @@ export default function Testimonials() {
 
 
   return (
-    <section id="testimonials" className="section-padding bg-white relative overflow-hidden" ref={ref}>
+    <section id="testimonials" className="section-padding bg-gradient-to-br from-ivory-white to-soft-blush/20 relative overflow-hidden" ref={ref}>
       {/* Background Decoration */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
+        <div className="absolute top-10 right-10 w-96 h-96 bg-magenta rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-royal-indigo rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -59,17 +81,17 @@ export default function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6">
-            <Quote className="w-8 h-8 text-accent" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-magenta/20 to-golden-amber/20 rounded-full mb-6">
+            <Quote className="w-8 h-8 text-royal-indigo" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-royal-indigo mb-4 px-4">
             What Our Clients Say
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-warm-charcoal max-w-3xl mx-auto px-4">
             Real stories from couples and professionals who transformed their relationships
           </p>
           <motion.div
-            className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
+            className="w-24 h-1 bg-gradient-to-r from-magenta to-golden-amber mx-auto mt-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -89,41 +111,59 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 md:p-12 shadow-2xl border-2 border-gray-100"
+              className="bg-gradient-to-br from-ivory-white to-soft-blush/10 rounded-2xl p-8 md:p-12 shadow-2xl border-2 border-royal-indigo/10"
             >
               {/* Quote Icon */}
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-magenta to-golden-amber rounded-full flex items-center justify-center">
                   <Quote className="w-8 h-8 text-white" />
                 </div>
               </div>
 
-              {/* Rating */}
-              <div className="flex justify-center gap-1 mb-6">
+              {/* Title/Heading */}
+              {currentTestimonial.title && (
+                <div className="text-center mb-4">
+                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-royal-indigo">
+                    {currentTestimonial.title}
+                  </h3>
+                </div>
+              )}
+
+              {/* Rating - Golden Shining Stars */}
+              <div className="flex justify-center gap-2 mb-6">
                 {[...Array(currentTestimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  <Star 
+                    key={i} 
+                    className="w-7 h-7 fill-bright-marigold text-bright-marigold" 
+                    style={{ 
+                      filter: 'drop-shadow(0 0 6px rgba(255, 181, 51, 1)) drop-shadow(0 0 12px rgba(255, 181, 51, 0.6))',
+                      animation: `pulse 2s ease-in-out infinite ${i * 0.1}s`
+                    }}
+                  />
                 ))}
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-xl md:text-2xl text-gray-700 text-center mb-8 leading-relaxed italic">
+              <p className="text-xl md:text-2xl text-warm-charcoal text-center mb-8 leading-relaxed italic">
                 "{currentTestimonial.text}"
               </p>
 
               {/* Author Info */}
               <div className="flex items-center justify-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  {currentTestimonial.image}
+                <div className="w-20 h-20 bg-gradient-to-br from-royal-indigo/10 to-soft-blush/30 rounded-full flex items-center justify-center text-4xl border-2 border-royal-indigo/20">
+                  {currentTestimonial.emoji}
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-primary text-lg">
+                  {currentTestimonial.title && (
+                    <div className="text-magenta font-semibold text-sm mb-1">
+                      {currentTestimonial.title}
+                    </div>
+                  )}
+                  <div className="font-bold text-royal-indigo text-lg">
                     {currentTestimonial.name}
                   </div>
-                  <div className="text-gray-600 text-sm">
+                  <div className="text-warm-charcoal/70 text-sm">
                     {currentTestimonial.position}
-                  </div>
-                  <div className="text-accent text-sm font-medium">
-                    {currentTestimonial.company}
                   </div>
                 </div>
               </div>
@@ -134,7 +174,7 @@ export default function Testimonials() {
           <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 bg-white border-2 border-primary rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-lg hover:scale-110"
+              className="w-12 h-12 bg-ivory-white border-2 border-royal-indigo rounded-full flex items-center justify-center hover:bg-royal-indigo hover:text-ivory-white transition-all shadow-lg hover:scale-110"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -148,8 +188,8 @@ export default function Testimonials() {
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === currentIndex
-                      ? "bg-accent w-8"
-                      : "bg-gray-300 hover:bg-gray-400"
+                      ? "bg-gradient-to-r from-magenta to-golden-amber w-8"
+                      : "bg-warm-charcoal/30 hover:bg-warm-charcoal/50"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -158,7 +198,7 @@ export default function Testimonials() {
 
             <button
               onClick={nextTestimonial}
-              className="w-12 h-12 bg-white border-2 border-primary rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all shadow-lg hover:scale-110"
+              className="w-12 h-12 bg-ivory-white border-2 border-royal-indigo rounded-full flex items-center justify-center hover:bg-royal-indigo hover:text-ivory-white transition-all shadow-lg hover:scale-110"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />

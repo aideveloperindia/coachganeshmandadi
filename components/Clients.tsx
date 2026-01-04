@@ -164,7 +164,7 @@ export default function Clients() {
             className="group"
           >
             <a
-              href={`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hi, I would like to book a session!')}`}
+              href="https://rer6xajw.paperform.co/"
               target="_blank"
               rel="noopener noreferrer"
               className="block"

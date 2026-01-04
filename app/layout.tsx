@@ -3,21 +3,21 @@ import "./globals.css";
 import { coach } from "@/data/coach";
 
 export const metadata: Metadata = {
-  title: `${coach.name} - ${coach.title}`,
-  description: `${coach.brief} Book a free discovery call.`,
-  keywords: ["relationship coach", "couples therapy", "communication", "conflict resolution", "relationship counseling"],
-  authors: [{ name: coach.name }],
+  title: "Ganesh Mandadi – Leading Relationship & Life Balance Coach",
+  description: "TEDx and Josh Talks speaker, author, and Certified Relationship & Life Balance Coach with 23+ years of experience. Founder of SoulSync Relationships™. Helping couples rebuild trust, improve communication, and create meaningful partnerships. Book a free discovery call.",
+  keywords: ["relationship coach", "life balance coach", "couples therapy", "relationship counseling", "Ganesh Mandadi", "SoulSync Relationships", "TEDx speaker", "NLP practitioner", "marriage counseling", "relationship healing"],
+  authors: [{ name: "Ganesh Mandadi" }],
   openGraph: {
-    title: `${coach.name} - ${coach.title}`,
-    description: coach.brief,
+    title: "Ganesh Mandadi – Leading Relationship & Life Balance Coach",
+    description: "TEDx and Josh Talks speaker, author, and Certified Relationship & Life Balance Coach with 23+ years of experience. Founder of SoulSync Relationships™. Helping couples rebuild trust, improve communication, and create meaningful partnerships.",
     type: "website",
     locale: "en_US",
-    siteName: coach.name,
+    siteName: "Ganesh Mandadi",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${coach.name} - ${coach.title}`,
-    description: coach.brief,
+    title: "Ganesh Mandadi – Leading Relationship & Life Balance Coach",
+    description: "TEDx and Josh Talks speaker, author, and Certified Relationship & Life Balance Coach with 23+ years of experience. Founder of SoulSync Relationships™.",
   },
   icons: {
     icon: "/favicon.ico",

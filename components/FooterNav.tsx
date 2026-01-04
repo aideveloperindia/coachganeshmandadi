@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { Heart, Linkedin, Twitter, Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { coach } from "@/data/coach";
 
 export default function FooterNav() {
   const ref = useRef(null);
@@ -147,23 +148,23 @@ export default function FooterNav() {
             <h4 className="text-lg font-bold mb-4">Get in Touch</h4>
             <div className="space-y-4">
               <a
-                href="tel:+919666722233"
+                href={`tel:${coach.phone.replace(/[^0-9+]/g, '')}`}
                 className="flex items-start space-x-3 text-white/80 hover:text-accent transition-colors group"
               >
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:rotate-12 transition-transform" />
                 <div>
                   <div className="text-sm text-white/60">Phone</div>
-                  <div>+91 96667 22233</div>
+                  <div>{coach.phone}</div>
                 </div>
               </a>
               <a
-                href="mailto:coach@gopisarvepalli.com"
+                href={`mailto:${coach.email}`}
                 className="flex items-start space-x-3 text-white/80 hover:text-accent transition-colors group"
               >
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="text-sm text-white/60">Email</div>
-                  <div>coach@gopisarvepalli.com</div>
+                  <div>{coach.email}</div>
                 </div>
               </a>
               <div className="flex items-start space-x-3 text-white/80">

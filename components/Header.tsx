@@ -4,34 +4,73 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, Home, User, BookOpen, Users, Award, MessageSquare, Image as ImageIcon, FileText, Mail as MailIcon, ChevronDown } from "lucide-react";
+import { Menu, X, Home, User, BookOpen, MessageSquare, Image as ImageIcon, Mail as MailIcon, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { coach } from "@/data/coach";
 
 const navigation = [
-  { name: "Home", href: "/", icon: Home },
-  { name: "About", href: "/about", icon: User },
-  { name: "Programs", href: "/programs", icon: BookOpen },
-  { name: "Clients", href: "/clients", icon: Users },
-  { name: "Certifications", href: "/certifications", icon: Award },
-  { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
-  { name: "Gallery", href: "/gallery", icon: ImageIcon },
-  { name: "Resources", href: "/resources", icon: FileText },
-  { name: "Contact", href: "/contact", icon: MailIcon },
+  { name: "Home", href: "#", anchor: "", icon: Home },
+  { name: "About", href: "#about", anchor: "about", icon: User },
+  { name: "Programs", href: "#programs", anchor: "programs", icon: BookOpen },
+  { name: "Testimonials", href: "#testimonials", anchor: "testimonials", icon: MessageSquare },
+  { name: "Gallery", href: "#gallery", anchor: "gallery", icon: ImageIcon },
+  { name: "Contact", href: "#contact", anchor: "contact", icon: MailIcon },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPagesMenuOpen, setIsPagesMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const pathname = usePathname();
+
+  // Smooth scroll to section
+  const scrollToSection = (anchor: string) => {
+    if (anchor === "" || anchor === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const element = document.getElementById(anchor);
+    if (element) {
+      const headerHeight = 112; // Approximate header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+    setIsPagesMenuOpen(false);
+    setIsMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Update active section based on scroll position
+      const sections = navigation
+        .filter(item => item.anchor)
+        .map(item => item.anchor);
+      
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const headerHeight = 112;
+          return rect.top <= headerHeight + 100 && rect.bottom >= headerHeight;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
+    
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -52,7 +91,14 @@ export default function Header() {
         <div className="container-custom">
           <div className="flex items-center justify-between h-20 sm:h-24 md:h-28 px-4 sm:px-6">
             {/* Logo - Centered Vertically */}
-            <Link href="/" className="flex items-center justify-center group h-full">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("");
+              }}
+              className="flex items-center justify-center group h-full cursor-pointer"
+            >
               <motion.div
                 className="relative flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
@@ -68,7 +114,7 @@ export default function Header() {
                   />
                 </div>
               </motion.div>
-            </Link>
+            </a>
 
             {/* Desktop Navigation & CTA - Right Side Together */}
             <div className="hidden lg:flex items-center gap-3">
@@ -82,7 +128,7 @@ export default function Header() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="group border-primary text-primary hover:bg-primary hover:text-white flex items-center gap-2"
+                    className="group border-royal-indigo text-royal-indigo hover:bg-royal-indigo hover:text-ivory-white flex items-center gap-2"
                   >
                     Pages
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPagesMenuOpen ? 'rotate-180' : ''}`} />
@@ -100,27 +146,30 @@ export default function Header() {
                       >
                         {navigation.map((item, index) => {
                           const Icon = item.icon;
-                          const isActive = pathname === item.href;
+                          const isActive = activeSection === item.anchor || (item.anchor === "" && typeof window !== 'undefined' && window.scrollY < 100);
                           return (
-                            <Link
+                            <a
                               key={item.name}
                               href={item.href}
-                              onClick={() => setIsPagesMenuOpen(false)}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                scrollToSection(item.anchor);
+                              }}
                             >
                               <motion.div
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.03 }}
-                                className={`flex items-center gap-3 px-4 py-3 hover:bg-primary/5 transition-colors cursor-pointer group/item ${
-                                  isActive ? 'bg-primary/10 border-l-2 border-primary' : ''
+                                className={`flex items-center gap-3 px-4 py-3 hover:bg-soft-blush/20 transition-colors cursor-pointer group/item ${
+                                  isActive ? 'bg-soft-blush/30 border-l-2 border-royal-indigo' : ''
                                 }`}
                               >
-                                <Icon className={`w-5 h-5 ${isActive ? 'text-primary' : 'text-gray-600 group-hover/item:text-primary'}`} />
-                                <span className={`font-medium ${isActive ? 'text-primary' : 'text-gray-700 group-hover/item:text-primary'}`}>
+                                <Icon className={`w-5 h-5 ${isActive ? 'text-royal-indigo' : 'text-warm-charcoal/70 group-hover/item:text-royal-indigo'}`} />
+                                <span className={`font-medium ${isActive ? 'text-royal-indigo' : 'text-warm-charcoal group-hover/item:text-royal-indigo'}`}>
                                   {item.name}
                                 </span>
                               </motion.div>
-                            </Link>
+                            </a>
                           );
                         })}
                       </motion.div>
@@ -135,8 +184,7 @@ export default function Header() {
                 size="sm" 
                 className="group"
                 onClick={() => {
-                  const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
-                  window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
+                  window.open('https://rer6xajw.paperform.co/', "_blank");
                 }}
               >
                 Book Session
@@ -150,9 +198,9 @@ export default function Header() {
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-primary" />
+                <X className="w-6 h-6 text-royal-indigo" />
               ) : (
-                <Menu className="w-6 h-6 text-primary" />
+                <Menu className="w-6 h-6 text-royal-indigo" />
               )}
             </button>
           </div>
@@ -183,7 +231,7 @@ export default function Header() {
               <nav className="container-custom px-6 py-8">
                 <div className="space-y-2">
                   {navigation.map((item, index) => {
-                    const isActive = pathname === item.href;
+                    const isActive = activeSection === item.anchor || (item.anchor === "" && typeof window !== 'undefined' && window.scrollY < 100);
                     return (
                       <motion.div
                         key={item.name}
@@ -191,15 +239,21 @@ export default function Header() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
                       >
-                        <Link href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
+                        <a 
+                          href={item.href} 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            scrollToSection(item.anchor);
+                          }}
+                        >
                           <div className={`block px-6 py-4 rounded-xl font-medium text-lg transition-all ${
                             isActive
-                              ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg"
+                              ? "bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber text-white shadow-lg"
                               : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                           }`}>
                             {item.name}
                           </div>
-                        </Link>
+                        </a>
                       </motion.div>
                     );
                   })}
@@ -207,26 +261,27 @@ export default function Header() {
 
                 {/* Mobile CTA Buttons */}
                 <div className="mt-8 space-y-3">
-                  <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button 
-                      variant="outline" 
-                      size="lg" 
-                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
-                    >
-                      Know More
-                    </Button>
-                  </Link>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                      className="w-full border-royal-indigo text-royal-indigo hover:bg-royal-indigo hover:text-ivory-white"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection("about");
+                    }}
+                  >
+                    Know More
+                  </Button>
                   <Button 
                     variant="accent" 
                     size="lg" 
                     className="w-full"
                     onClick={() => {
                       setIsMobileMenuOpen(false);
-                      const message = encodeURIComponent('Hello Ganesh, I\'d like to book a discovery call.');
-                      window.open(`https://wa.me/${coach.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`, "_blank");
+                      window.open('https://rer6xajw.paperform.co/', "_blank");
                     }}
                   >
-                    Book a Session
+                    Book Session
                   </Button>
                 </div>
 
