@@ -30,7 +30,7 @@ export default function BrandStory() {
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-magenta to-golden-amber rounded-full mb-8"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-magenta to-golden-amber rounded-full mb-4"
           >
             <Quote className="w-10 h-10 text-white" />
           </motion.div>
@@ -59,7 +59,7 @@ export default function BrandStory() {
 
           {/* Main Quote */}
           <motion.p
-            className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-8 font-light italic px-4"
+            className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-4 font-light italic px-4"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.6 }}
@@ -81,7 +81,7 @@ export default function BrandStory() {
 
           {/* Decorative Line */}
           <motion.div
-            className="mt-12 flex justify-center gap-2"
+            className="mt-6 flex justify-center gap-2"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 1 }}

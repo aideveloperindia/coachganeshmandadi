@@ -33,7 +33,7 @@ export default function Books() {
       <div className="container-custom">
         {/* Section Title */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -48,7 +48,7 @@ export default function Books() {
             Explore Coach Ganesh Mandadi's books on relationship coaching and personal growth
           </p>
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-magenta to-golden-amber mx-auto mt-6 rounded-full"
+            className="w-24 h-1 bg-warm-charcoal mx-auto mt-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -56,7 +56,7 @@ export default function Books() {
         </motion.div>
 
         {/* Books Grid */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {books.map((book, index) => (
             <motion.div
               key={book.id}

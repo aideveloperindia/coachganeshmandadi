@@ -82,7 +82,7 @@ export default function Gallery() {
       <div className="container-custom">
         {/* Section Title */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -97,7 +97,7 @@ export default function Gallery() {
             Watch relationship coaching sessions and workshops in action
           </p>
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-magenta to-golden-amber mx-auto mt-6 rounded-full"
+            className="w-24 h-1 bg-warm-charcoal mx-auto mt-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -105,7 +105,7 @@ export default function Gallery() {
         </motion.div>
 
         {/* Video Grid - Keep structure, show placeholder holders */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {videos.length > 0 ? (
             videos.map((video, index) => (
               <motion.div

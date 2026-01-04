@@ -16,7 +16,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative py-8 md:py-12 flex items-start justify-center overflow-hidden">
+    <section className="relative py-4 md:py-6 flex items-start justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom pt-8 text-center">
+      <div className="relative z-10 container-custom pt-16 md:pt-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,27 +47,15 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <span 
-              className="text-ivory-white font-extrabold block"
-              style={{ 
-                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
-                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
-                WebkitTextFillColor: '#F3F6F1',
-                fontWeight: '900'
-              }}
-            >
-              Build Deeper, Healthier
-            </span>
-            <br className="hidden sm:block" />
-            <span 
               className="text-ivory-white font-extrabold"
               style={{ 
-                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
-                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
+                WebkitTextStroke: '1px rgba(0,0,0,0.8)',
                 WebkitTextFillColor: '#F3F6F1',
                 fontWeight: '900'
               }}
             >
-              Relationships
+              Build Deeper, Healthier <span className="whitespace-nowrap">Relationships</span>
             </span>
           </motion.h1>
 
@@ -81,8 +69,8 @@ export default function Hero() {
             <p 
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-ivory-white mb-2 max-w-3xl mx-auto px-4 font-extrabold"
               style={{ 
-                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
-                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
+                WebkitTextStroke: '1px rgba(0,0,0,0.8)',
                 WebkitTextFillColor: '#F3F6F1',
                 fontWeight: '900'
               }}
@@ -92,8 +80,8 @@ export default function Hero() {
             <p 
               className="text-sm sm:text-base md:text-lg text-ivory-white font-extrabold px-4"
               style={{ 
-                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
-                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
+                WebkitTextStroke: '1px rgba(0,0,0,0.8)',
                 WebkitTextFillColor: '#F3F6F1',
                 fontWeight: '900'
               }}
@@ -113,8 +101,8 @@ export default function Hero() {
               <div 
                 className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
                 style={{ 
-                  textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
-                  WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
+                  WebkitTextStroke: '1px rgba(0,0,0,0.8)',
                   WebkitTextFillColor: '#F3F6F1',
                   fontWeight: '900'
                 }}
@@ -124,8 +112,8 @@ export default function Hero() {
               <div 
                 className="text-xs sm:text-sm text-ivory-white font-extrabold"
                 style={{ 
-                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
                   WebkitTextFillColor: '#F3F6F1',
                   fontWeight: '900'
                 }}
@@ -137,8 +125,8 @@ export default function Hero() {
               <div 
                 className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
                 style={{ 
-                  textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
-                  WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
+                  WebkitTextStroke: '1px rgba(0,0,0,0.8)',
                   WebkitTextFillColor: '#F3F6F1',
                   fontWeight: '900'
                 }}
@@ -148,8 +136,8 @@ export default function Hero() {
               <div 
                 className="text-xs sm:text-sm text-ivory-white font-extrabold"
                 style={{ 
-                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
                   WebkitTextFillColor: '#F3F6F1',
                   fontWeight: '900'
                 }}
@@ -161,8 +149,8 @@ export default function Hero() {
               <div 
                 className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
                 style={{ 
-                  textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
-                  WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
+                  WebkitTextStroke: '1px rgba(0,0,0,0.8)',
                   WebkitTextFillColor: '#F3F6F1',
                   fontWeight: '900'
                 }}
@@ -172,8 +160,8 @@ export default function Hero() {
               <div 
                 className="text-xs sm:text-sm text-ivory-white font-extrabold"
                 style={{ 
-                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
                   WebkitTextFillColor: '#F3F6F1',
                   fontWeight: '900'
                 }}
@@ -208,8 +196,8 @@ export default function Hero() {
               <span 
                 className="text-sm sm:text-base font-extrabold text-ivory-white"
                 style={{ 
-                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
                   WebkitTextFillColor: '#F3F6F1',
                   fontWeight: '900'
                 }}

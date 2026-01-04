@@ -129,7 +129,7 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-white/20 mb-8" />
+          <div className="border-t border-warm-charcoal mb-8" />
 
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -167,13 +167,13 @@ export default function Footer() {
 
           {/* Developer Credit */}
           <div className="mt-8 text-center">
-            <div className="flex items-center justify-center gap-2 text-white/40 text-xs">
+            <div className="flex items-center justify-center gap-2 text-warm-charcoal text-xs">
               <span>Built by</span>
               <a
                 href="https://aideveloperindia.store/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-bright-marigold transition-colors group"
+                className="flex items-center gap-2 hover:text-royal-indigo transition-colors group text-warm-charcoal"
               >
                 <div className="w-4 h-4 relative group-hover:scale-110 transition-transform">
                   <Image

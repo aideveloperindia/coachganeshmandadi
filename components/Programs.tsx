@@ -39,7 +39,7 @@ export default function Programs() {
       <div className="container-custom">
         {/* Section Title */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -51,7 +51,7 @@ export default function Programs() {
             Choose the program that fits your needs. All programs are designed to create measurable change in your relationships.
           </p>
           <motion.div
-            className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
+            className="w-24 h-1 bg-warm-charcoal mx-auto mt-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -59,7 +59,7 @@ export default function Programs() {
         </motion.div>
 
         {/* Programs Grid */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {programsData.map((program, index) => {
             const Icon = iconMap[program.id] || MessageSquare;
             const color = colorMap[program.id] || "from-blue-500 to-blue-600";

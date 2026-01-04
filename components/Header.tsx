@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, User, BookOpen, MessageSquare, Image as ImageIcon, Mail as MailIcon, ChevronDown } from "lucide-react";
+import { Menu, X, Home, User, BookOpen, MessageSquare, Image as ImageIcon, Mail as MailIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { coach } from "@/data/coach";
@@ -21,7 +21,6 @@ const navigation = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isPagesMenuOpen, setIsPagesMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const pathname = usePathname();
 
@@ -41,7 +40,6 @@ export default function Header() {
         behavior: "smooth",
       });
     }
-    setIsPagesMenuOpen(false);
     setIsMobileMenuOpen(false);
   };
 
@@ -117,65 +115,31 @@ export default function Header() {
             </a>
 
             {/* Desktop Navigation & CTA - Right Side Together */}
-            <div className="hidden lg:flex items-center gap-3">
-              {/* Pages Dropdown */}
-              <nav className="flex items-center">
-                <div 
-                  className="relative"
-                  onMouseEnter={() => setIsPagesMenuOpen(true)}
-                  onMouseLeave={() => setIsPagesMenuOpen(false)}
-                >
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="group border-royal-indigo text-royal-indigo hover:bg-royal-indigo hover:text-ivory-white flex items-center gap-2"
-                  >
-                    Pages
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPagesMenuOpen ? 'rotate-180' : ''}`} />
-                  </Button>
-
-                  {/* Dropdown Menu */}
-                  <AnimatePresence>
-                    {isPagesMenuOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 min-w-[200px] z-50"
-                      >
-                        {navigation.map((item, index) => {
-                          const Icon = item.icon;
-                          const isActive = activeSection === item.anchor || (item.anchor === "" && typeof window !== 'undefined' && window.scrollY < 100);
-                          return (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                scrollToSection(item.anchor);
-                              }}
-                            >
-                              <motion.div
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.03 }}
-                                className={`flex items-center gap-3 px-4 py-3 hover:bg-soft-blush/20 transition-colors cursor-pointer group/item ${
-                                  isActive ? 'bg-soft-blush/30 border-l-2 border-royal-indigo' : ''
-                                }`}
-                              >
-                                <Icon className={`w-5 h-5 ${isActive ? 'text-royal-indigo' : 'text-warm-charcoal/70 group-hover/item:text-royal-indigo'}`} />
-                                <span className={`font-medium ${isActive ? 'text-royal-indigo' : 'text-warm-charcoal group-hover/item:text-royal-indigo'}`}>
-                                  {item.name}
-                                </span>
-                              </motion.div>
-                            </a>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+            <div className="hidden lg:flex items-center gap-4">
+              {/* Navigation Links */}
+              <nav className="flex items-center gap-2">
+                {navigation.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = activeSection === item.anchor || (item.anchor === "" && typeof window !== 'undefined' && window.scrollY < 100);
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(item.anchor);
+                      }}
+                      className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        isActive 
+                          ? 'text-royal-indigo bg-soft-blush/30' 
+                          : 'text-warm-charcoal hover:text-royal-indigo hover:bg-soft-blush/10'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span>{item.name}</span>
+                    </a>
+                  );
+                })}
               </nav>
 
               {/* Book Session Button */}

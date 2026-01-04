@@ -76,7 +76,7 @@ export default function Testimonials() {
       <div className="container-custom relative z-10">
         {/* Section Title */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -91,7 +91,7 @@ export default function Testimonials() {
             Real stories from couples and professionals who transformed their relationships
           </p>
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-magenta to-golden-amber mx-auto mt-6 rounded-full"
+            className="w-24 h-1 bg-warm-charcoal mx-auto mt-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -144,7 +144,7 @@ export default function Testimonials() {
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-xl md:text-2xl text-warm-charcoal text-center mb-8 leading-relaxed italic">
+              <p className="text-xl md:text-2xl text-warm-charcoal text-center mb-4 leading-relaxed italic">
                 "{currentTestimonial.text}"
               </p>
 

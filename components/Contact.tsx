@@ -32,7 +32,7 @@ export default function Contact() {
       <div className="container-custom">
         {/* Section Title */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -44,14 +44,14 @@ export default function Contact() {
             Ready to transform your relationships? Book your discovery call today
           </p>
           <motion.div
-            className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"
+            className="w-24 h-1 bg-warm-charcoal mx-auto mt-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
           />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

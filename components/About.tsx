@@ -48,7 +48,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           {/* Section Title */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <motion.h2
               className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-royal-indigo mb-4 px-4"
               initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function About() {
               About {coach.name}
             </motion.h2>
             <motion.div
-              className="w-24 h-1 bg-gradient-to-r from-magenta to-golden-amber mx-auto rounded-full"
+              className="w-24 h-1 bg-warm-charcoal mx-auto rounded-full"
               initial={{ width: 0 }}
               animate={isInView ? { width: 96 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -66,7 +66,7 @@ export default function About() {
           </div>
 
           {/* Photo 1 - Left, Content - Right */}
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-center mb-6">
             {/* Photo 1 - Left */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -99,7 +99,7 @@ export default function About() {
           </div>
 
           {/* Photo 2 - Right, Content - Left */}
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-center mb-6">
             {/* Content 2 - Left */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -132,7 +132,7 @@ export default function About() {
           </div>
 
           {/* Photo 3 - Left, Content - Right */}
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-center mb-6">
             {/* Photo 3 - Left */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -175,7 +175,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.9, duration: 0.6 }}
-              className="mb-12"
+              className="mb-6"
             >
               <div className="max-w-4xl mx-auto p-8 bg-gradient-to-br from-soft-blush/30 to-ivory-white rounded-xl border border-magenta/20 space-y-4">
                 <div>
