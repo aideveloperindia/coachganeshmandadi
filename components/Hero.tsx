@@ -41,14 +41,34 @@ export default function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-6 leading-tight px-4 text-ivory-white drop-shadow-2xl"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading mb-6 leading-tight px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Build Deeper, Healthier
+            <span 
+              className="text-ivory-white font-extrabold block"
+              style={{ 
+                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
+                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                WebkitTextFillColor: '#F3F6F1',
+                fontWeight: '900'
+              }}
+            >
+              Build Deeper, Healthier
+            </span>
             <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-bright-marigold via-golden-amber to-bright-marigold bg-clip-text text-transparent drop-shadow-2xl" style={{ backgroundSize: '200% auto', animation: 'gradient 3s ease infinite', textShadow: '0 4px 8px rgba(0,0,0,0.5)' }}>Relationships</span>
+            <span 
+              className="text-ivory-white font-extrabold"
+              style={{ 
+                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
+                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                WebkitTextFillColor: '#F3F6F1',
+                fontWeight: '900'
+              }}
+            >
+              Relationships
+            </span>
           </motion.h1>
 
           {/* Subtitle with Experience */}
@@ -58,10 +78,26 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-ivory-white mb-2 max-w-3xl mx-auto px-4 drop-shadow-2xl font-medium" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>
+            <p 
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-ivory-white mb-2 max-w-3xl mx-auto px-4 font-extrabold"
+              style={{ 
+                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
+                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                WebkitTextFillColor: '#F3F6F1',
+                fontWeight: '900'
+              }}
+            >
               {coach.title}
             </p>
-            <p className="text-sm sm:text-base md:text-lg text-bright-marigold font-semibold px-4 drop-shadow-2xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>
+            <p 
+              className="text-sm sm:text-base md:text-lg text-ivory-white font-extrabold px-4"
+              style={{ 
+                textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
+                WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                WebkitTextFillColor: '#F3F6F1',
+                fontWeight: '900'
+              }}
+            >
               ✨ {coach.tagline}
             </p>
           </motion.div>
@@ -74,16 +110,76 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
           >
             <div className="text-center min-w-[100px]">
-              <div className="text-3xl sm:text-4xl font-heading font-bold text-ivory-white drop-shadow-2xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>23+</div>
-              <div className="text-xs sm:text-sm text-ivory-white drop-shadow-lg" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>Years Experience</div>
+              <div 
+                className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
+                style={{ 
+                  textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
+                  WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                  WebkitTextFillColor: '#F3F6F1',
+                  fontWeight: '900'
+                }}
+              >
+                23+
+              </div>
+              <div 
+                className="text-xs sm:text-sm text-ivory-white font-extrabold"
+                style={{ 
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  WebkitTextFillColor: '#F3F6F1',
+                  fontWeight: '900'
+                }}
+              >
+                Years Experience
+              </div>
             </div>
             <div className="text-center min-w-[100px]">
-              <div className="text-3xl sm:text-4xl font-heading font-bold text-ivory-white drop-shadow-2xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>1000+</div>
-              <div className="text-xs sm:text-sm text-ivory-white drop-shadow-lg" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>Couples Coached</div>
+              <div 
+                className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
+                style={{ 
+                  textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
+                  WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                  WebkitTextFillColor: '#F3F6F1',
+                  fontWeight: '900'
+                }}
+              >
+                1000+
+              </div>
+              <div 
+                className="text-xs sm:text-sm text-ivory-white font-extrabold"
+                style={{ 
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  WebkitTextFillColor: '#F3F6F1',
+                  fontWeight: '900'
+                }}
+              >
+                Couples Coached
+              </div>
             </div>
             <div className="text-center min-w-[100px]">
-              <div className="text-3xl sm:text-4xl font-heading font-bold text-ivory-white drop-shadow-2xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>4.8★</div>
-              <div className="text-xs sm:text-sm text-ivory-white drop-shadow-lg" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>Average Rating</div>
+              <div 
+                className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
+                style={{ 
+                  textShadow: '3px 3px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)',
+                  WebkitTextStroke: '2px rgba(0,0,0,0.9)',
+                  WebkitTextFillColor: '#F3F6F1',
+                  fontWeight: '900'
+                }}
+              >
+                4.8★
+              </div>
+              <div 
+                className="text-xs sm:text-sm text-ivory-white font-extrabold"
+                style={{ 
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  WebkitTextFillColor: '#F3F6F1',
+                  fontWeight: '900'
+                }}
+              >
+                Average Rating
+              </div>
             </div>
           </motion.div>
 
@@ -106,11 +202,21 @@ export default function Hero() {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => scrollToSection("free-guide")}
-              className="group w-full sm:w-auto"
+              onClick={() => scrollToSection("books")}
+              className="group w-full sm:w-auto border-2 border-ivory-white bg-ivory-white/10 backdrop-blur-sm hover:bg-ivory-white/20"
             >
-              Get Free Guide
-              <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+              <span 
+                className="text-sm sm:text-base font-extrabold text-ivory-white"
+                style={{ 
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.9)',
+                  WebkitTextStroke: '1.5px rgba(0,0,0,0.9)',
+                  WebkitTextFillColor: '#F3F6F1',
+                  fontWeight: '900'
+                }}
+              >
+                Explore Books
+              </span>
+              <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform text-ivory-white" style={{ filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.8))' }} />
             </Button>
           </motion.div>
         </motion.div>
