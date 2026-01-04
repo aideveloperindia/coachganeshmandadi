@@ -121,8 +121,8 @@ export default function About() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
                 <img
-                  src="/photo2.png"
-                  alt={`${coach.name} - Photo 2`}
+                  src="/photo3.png"
+                  alt={`${coach.name} - Photo 3`}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -142,8 +142,8 @@ export default function About() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
                 <img
-                  src="/photo3.png"
-                  alt={`${coach.name} - Photo 3`}
+                  src="/photo2.png"
+                  alt={`${coach.name} - Photo 2`}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
