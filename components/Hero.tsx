@@ -111,24 +111,14 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <p 
-              className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-3xl mx-auto px-4 font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-              style={{ 
-                textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-              }}
-            >
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-3xl mx-auto px-4 font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
               <TypingText 
                 text={coach.title} 
                 delay={3500}
                 speed={60}
               />
             </p>
-            <p 
-              className="text-sm sm:text-base md:text-lg font-normal px-4 bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-              style={{ 
-                textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-              }}
-            >
+            <p className="text-sm sm:text-base md:text-lg font-normal tracking-wide px-4 bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
               <TypingText 
                 text={`✨ ${coach.tagline}`} 
                 delay={5000}
@@ -145,56 +135,26 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
           >
             <div className="text-center min-w-[100px]">
-              <div 
-                className="text-3xl sm:text-4xl font-heading font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
                 <TypingText text="23+" delay={6500} speed={100} />
               </div>
-              <div 
-                className="text-xs sm:text-sm font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <div className="text-xs sm:text-sm font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
                 <TypingText text="Years Experience" delay={6800} speed={40} />
               </div>
             </div>
             <div className="text-center min-w-[100px]">
-              <div 
-                className="text-3xl sm:text-4xl font-heading font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
                 <TypingText text="1000+" delay={7500} speed={100} />
               </div>
-              <div 
-                className="text-xs sm:text-sm font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <div className="text-xs sm:text-sm font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
                 <TypingText text="Couples Coached" delay={7800} speed={40} />
               </div>
             </div>
             <div className="text-center min-w-[100px]">
-              <div 
-                className="text-3xl sm:text-4xl font-heading font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
                 <TypingText text="4.8★" delay={8500} speed={100} />
               </div>
-              <div 
-                className="text-xs sm:text-sm font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <div className="text-xs sm:text-sm font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
                 <TypingText text="Average Rating" delay={8800} speed={40} />
               </div>
             </div>
@@ -213,12 +173,7 @@ export default function Hero() {
               onClick={handleDiscoveryCallClick}
               className="group w-full sm:w-auto"
             >
-              <span 
-                className="text-sm sm:text-base bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent font-normal"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <span className="text-sm sm:text-base tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent font-normal">
                 <TypingText text="Book Your Discovery Call" delay={9500} speed={50} />
               </span>
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -229,12 +184,7 @@ export default function Hero() {
               onClick={() => scrollToSection("books")}
               className="group w-full sm:w-auto border-2 border-ivory-white bg-ivory-white/10 backdrop-blur-sm hover:bg-ivory-white/20"
             >
-              <span 
-                className="text-sm sm:text-base font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
-                style={{ 
-                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
-                }}
-              >
+              <span className="text-sm sm:text-base font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
                 <TypingText text="Explore Books" delay={11000} speed={50} />
               </span>
               <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform text-ivory-white" />
