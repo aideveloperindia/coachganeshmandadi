@@ -4,6 +4,51 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import { coach } from "@/data/coach";
+import { useState, useEffect } from "react";
+
+// Typing animation component
+function TypingText({ text, delay = 0, speed = 50, className = "", style = {} }: { 
+  text: string; 
+  delay?: number; 
+  speed?: number; 
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+
+  useEffect(() => {
+    let typingInterval: NodeJS.Timeout;
+    
+    const timer = setTimeout(() => {
+      setIsTyping(true);
+      let currentIndex = 0;
+      typingInterval = setInterval(() => {
+        if (currentIndex < text.length) {
+          setDisplayedText(text.slice(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+          setIsTyping(false);
+        }
+      }, speed);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+      if (typingInterval) {
+        clearInterval(typingInterval);
+      }
+    };
+  }, [text, delay, speed]);
+
+  return (
+    <span className={className} style={style}>
+      {displayedText}
+      {isTyping && <span className="animate-pulse">|</span>}
+    </span>
+  );
+}
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -22,13 +67,11 @@ export default function Hero() {
         <img
           src="/herosection background.jpeg"
           alt="Hero Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_30%] blur-sm"
         />
         {/* Overlay for text visibility - using color palette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-royal-indigo/85 via-royal-indigo/80 to-royal-indigo/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-royal-indigo/60 via-transparent to-royal-indigo/60" />
-        {/* Additional overlay for better contrast */}
-        <div className="absolute inset-0 bg-warm-charcoal/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-royal-indigo/8 via-royal-indigo/8 to-royal-indigo/8" />
+        <div className="absolute inset-0 bg-gradient-to-r from-royal-indigo/6 via-transparent to-royal-indigo/6" />
       </div>
 
       {/* Content */}
@@ -47,15 +90,17 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <span 
-              className="text-ivory-white font-extrabold"
+              className="font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent block whitespace-pre-line"
               style={{ 
-                textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
-                WebkitTextStroke: '1px rgba(0,0,0,0.8)',
-                WebkitTextFillColor: '#F3F6F1',
-                fontWeight: '900'
+                WebkitTextFillColor: 'transparent',
+                textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
               }}
             >
-              Build Deeper, Healthier <span className="whitespace-nowrap">Relationships</span>
+              <TypingText 
+                text={'Build Deeper, Healthier\nRelationships'} 
+                delay={500}
+                speed={80}
+              />
             </span>
           </motion.h1>
 
@@ -67,26 +112,28 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
           >
             <p 
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-ivory-white mb-2 max-w-3xl mx-auto px-4 font-extrabold"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-3xl mx-auto px-4 font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
               style={{ 
-                textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
-                WebkitTextStroke: '1px rgba(0,0,0,0.8)',
-                WebkitTextFillColor: '#F3F6F1',
-                fontWeight: '900'
+                textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
               }}
             >
-              {coach.title}
+              <TypingText 
+                text={coach.title} 
+                delay={3500}
+                speed={60}
+              />
             </p>
             <p 
-              className="text-sm sm:text-base md:text-lg text-ivory-white font-extrabold px-4"
+              className="text-sm sm:text-base md:text-lg font-normal px-4 bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
               style={{ 
-                textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
-                WebkitTextStroke: '1px rgba(0,0,0,0.8)',
-                WebkitTextFillColor: '#F3F6F1',
-                fontWeight: '900'
+                textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
               }}
             >
-              ✨ {coach.tagline}
+              <TypingText 
+                text={`✨ ${coach.tagline}`} 
+                delay={5000}
+                speed={50}
+              />
             </p>
           </motion.div>
 
@@ -99,74 +146,56 @@ export default function Hero() {
           >
             <div className="text-center min-w-[100px]">
               <div 
-                className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
+                className="text-3xl sm:text-4xl font-heading font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
                 style={{ 
-                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
-                  WebkitTextStroke: '1px rgba(0,0,0,0.8)',
-                  WebkitTextFillColor: '#F3F6F1',
-                  fontWeight: '900'
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
                 }}
               >
-                23+
+                <TypingText text="23+" delay={6500} speed={100} />
               </div>
               <div 
-                className="text-xs sm:text-sm text-ivory-white font-extrabold"
+                className="text-xs sm:text-sm font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
                 style={{ 
-                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
-                  WebkitTextFillColor: '#F3F6F1',
-                  fontWeight: '900'
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
                 }}
               >
-                Years Experience
+                <TypingText text="Years Experience" delay={6800} speed={40} />
               </div>
             </div>
             <div className="text-center min-w-[100px]">
               <div 
-                className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
+                className="text-3xl sm:text-4xl font-heading font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
                 style={{ 
-                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
-                  WebkitTextStroke: '1px rgba(0,0,0,0.8)',
-                  WebkitTextFillColor: '#F3F6F1',
-                  fontWeight: '900'
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
                 }}
               >
-                1000+
+                <TypingText text="1000+" delay={7500} speed={100} />
               </div>
               <div 
-                className="text-xs sm:text-sm text-ivory-white font-extrabold"
+                className="text-xs sm:text-sm font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
                 style={{ 
-                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
-                  WebkitTextFillColor: '#F3F6F1',
-                  fontWeight: '900'
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
                 }}
               >
-                Couples Coached
+                <TypingText text="Couples Coached" delay={7800} speed={40} />
               </div>
             </div>
             <div className="text-center min-w-[100px]">
               <div 
-                className="text-3xl sm:text-4xl font-heading font-extrabold text-ivory-white"
+                className="text-3xl sm:text-4xl font-heading font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
                 style={{ 
-                  textShadow: '2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.8), 1px -1px 0px rgba(0,0,0,0.8), -1px 1px 0px rgba(0,0,0,0.8), 0 3px 8px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)',
-                  WebkitTextStroke: '1px rgba(0,0,0,0.8)',
-                  WebkitTextFillColor: '#F3F6F1',
-                  fontWeight: '900'
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
                 }}
               >
-                4.8★
+                <TypingText text="4.8★" delay={8500} speed={100} />
               </div>
               <div 
-                className="text-xs sm:text-sm text-ivory-white font-extrabold"
+                className="text-xs sm:text-sm font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
                 style={{ 
-                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
-                  WebkitTextFillColor: '#F3F6F1',
-                  fontWeight: '900'
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
                 }}
               >
-                Average Rating
+                <TypingText text="Average Rating" delay={8800} speed={40} />
               </div>
             </div>
           </motion.div>
@@ -184,7 +213,14 @@ export default function Hero() {
               onClick={handleDiscoveryCallClick}
               className="group w-full sm:w-auto"
             >
-              <span className="text-sm sm:text-base">Book Your Discovery Call</span>
+              <span 
+                className="text-sm sm:text-base bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent font-normal"
+                style={{ 
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
+                }}
+              >
+                <TypingText text="Book Your Discovery Call" delay={9500} speed={50} />
+              </span>
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -194,17 +230,14 @@ export default function Hero() {
               className="group w-full sm:w-auto border-2 border-ivory-white bg-ivory-white/10 backdrop-blur-sm hover:bg-ivory-white/20"
             >
               <span 
-                className="text-sm sm:text-base font-extrabold text-ivory-white"
+                className="text-sm sm:text-base font-normal bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent"
                 style={{ 
-                  textShadow: '1px 1px 0px rgba(0,0,0,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.8), 0.5px -0.5px 0px rgba(0,0,0,0.8), -0.5px 0.5px 0px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
-                  WebkitTextStroke: '0.8px rgba(0,0,0,0.8)',
-                  WebkitTextFillColor: '#F3F6F1',
-                  fontWeight: '900'
+                  textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, -1px 0 0 white, 1px 0 0 white'
                 }}
               >
-                Explore Books
+                <TypingText text="Explore Books" delay={11000} speed={50} />
               </span>
-              <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform text-ivory-white" style={{ filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.8))' }} />
+              <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform text-ivory-white" />
             </Button>
           </motion.div>
         </motion.div>

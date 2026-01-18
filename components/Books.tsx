@@ -18,7 +18,7 @@ const books = [
     id: "book2",
     title: "Your Life Graduation",
     subtitle: "From Fulfillment to Empires",
-    image: "/book1.png",
+    image: "/Life graduationbook.png",
     description: "A transformative guide to personal growth and achieving your highest potential in life and career.",
     amazonUrl: "https://www.amazon.in/Your-Life-Graduation-Fulfillment-Empires/dp/9394437258",
   },
@@ -74,22 +74,12 @@ export default function Books() {
                 <div className="bg-ivory-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-royal-indigo/10 hover:border-royal-indigo/50 cursor-pointer">
                   {/* Book Cover */}
                   <div className="relative aspect-[3/4] bg-gradient-to-br from-soft-blush/20 to-ivory-white">
-                    {book.image === "/book1.png" ? (
-                      // Placeholder for Your Life Graduation
-                      <div className="w-full h-full flex items-center justify-center p-8">
-                        <div className="text-center">
-                          <BookOpen className="w-24 h-24 text-royal-indigo/30 mx-auto mb-4" />
-                          <p className="text-warm-charcoal/50 text-sm">Book Cover Coming Soon</p>
-                        </div>
-                      </div>
-                    ) : (
-                      <img
-                        src={book.image}
-                        alt={book.title}
-                        className="w-full h-full object-contain p-4"
-                        loading="lazy"
-                      />
-                    )}
+                    <img
+                      src={book.image}
+                      alt={book.title}
+                      className="w-full h-full object-contain p-4"
+                      loading="lazy"
+                    />
                   </div>
 
                   {/* Book Info */}

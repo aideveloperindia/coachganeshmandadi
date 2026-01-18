@@ -167,13 +167,13 @@ export default function Footer() {
 
           {/* Developer Credit */}
           <div className="mt-8 text-center">
-            <div className="flex items-center justify-center gap-2 text-warm-charcoal text-xs">
+            <div className="flex items-center justify-center gap-2 text-white text-xs">
               <span>Built by</span>
               <a
                 href="https://aideveloperindia.store/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-royal-indigo transition-colors group text-warm-charcoal"
+                className="flex items-center gap-2 text-white hover:text-bright-marigold transition-colors group"
               >
                 <div className="w-4 h-4 relative group-hover:scale-110 transition-transform">
                   <Image
