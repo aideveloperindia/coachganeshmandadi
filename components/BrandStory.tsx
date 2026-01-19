@@ -54,7 +54,7 @@ export default function BrandStory() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4 }}
           >
-            Our Mission
+            My Mission
           </motion.h2>
 
           {/* Main Quote */}

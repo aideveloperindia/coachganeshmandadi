@@ -67,7 +67,7 @@ export default function Hero() {
         <img
           src="/herosection background.jpeg"
           alt="Hero Background"
-          className="w-full h-full object-cover object-[center_30%] blur-sm"
+          className="w-full h-full object-cover object-top blur-sm"
         />
         {/* Overlay for text visibility - using color palette */}
         <div className="absolute inset-0 bg-gradient-to-b from-royal-indigo/8 via-royal-indigo/8 to-royal-indigo/8" />
@@ -111,14 +111,14 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-3xl mx-auto px-4 font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 max-w-3xl mx-auto px-4 font-heading font-normal tracking-wide text-white">
               <TypingText 
                 text={coach.title} 
                 delay={3500}
                 speed={60}
               />
             </p>
-            <p className="text-sm sm:text-base md:text-lg font-normal tracking-wide px-4 bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+            <p className="text-sm sm:text-base md:text-lg font-heading font-normal tracking-wide px-4 text-white">
               <TypingText 
                 text={`✨ ${coach.tagline}`} 
                 delay={5000}
@@ -135,26 +135,26 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
           >
             <div className="text-center min-w-[100px]">
-              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide text-white">
                 <TypingText text="23+" delay={6500} speed={100} />
               </div>
-              <div className="text-xs sm:text-sm font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+              <div className="text-xs sm:text-sm font-heading font-normal tracking-wide text-white">
                 <TypingText text="Years Experience" delay={6800} speed={40} />
               </div>
             </div>
             <div className="text-center min-w-[100px]">
-              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide text-white">
                 <TypingText text="1000+" delay={7500} speed={100} />
               </div>
-              <div className="text-xs sm:text-sm font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+              <div className="text-xs sm:text-sm font-heading font-normal tracking-wide text-white">
                 <TypingText text="Couples Coached" delay={7800} speed={40} />
               </div>
             </div>
             <div className="text-center min-w-[100px]">
-              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+              <div className="text-3xl sm:text-4xl font-heading font-normal tracking-wide text-white">
                 <TypingText text="4.8★" delay={8500} speed={100} />
               </div>
-              <div className="text-xs sm:text-sm font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+              <div className="text-xs sm:text-sm font-heading font-normal tracking-wide text-white">
                 <TypingText text="Average Rating" delay={8800} speed={40} />
               </div>
             </div>
@@ -173,21 +173,21 @@ export default function Hero() {
               onClick={handleDiscoveryCallClick}
               className="group w-full sm:w-auto"
             >
-              <span className="text-sm sm:text-base tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent font-normal">
+              <span className="text-sm sm:text-base font-heading font-normal tracking-wide text-white">
                 <TypingText text="Book Your Discovery Call" delay={9500} speed={50} />
               </span>
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               variant="outline"
               size="lg"
               onClick={() => scrollToSection("books")}
-              className="group w-full sm:w-auto border-2 border-ivory-white bg-ivory-white/10 backdrop-blur-sm hover:bg-ivory-white/20"
+              className="group w-full sm:w-auto border-2 border-white bg-white/10 backdrop-blur-sm hover:bg-white/20"
             >
-              <span className="text-sm sm:text-base font-normal tracking-wide bg-gradient-to-r from-royal-indigo via-magenta to-golden-amber bg-clip-text text-transparent">
+              <span className="text-sm sm:text-base font-heading font-normal tracking-wide text-white">
                 <TypingText text="Explore Books" delay={11000} speed={50} />
               </span>
-              <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform text-ivory-white" />
+              <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform text-white" />
             </Button>
           </motion.div>
         </motion.div>

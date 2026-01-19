@@ -55,8 +55,8 @@ export default function Books() {
           />
         </motion.div>
 
-        {/* Books Grid */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        {/* Books Grid - full width, equal height cards, buttons aligned */}
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {books.map((book, index) => (
             <motion.div
               key={book.id}
@@ -69,33 +69,33 @@ export default function Books() {
                 href={book.amazonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block w-full"
               >
                 <div className="bg-ivory-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-royal-indigo/10 hover:border-royal-indigo/50 cursor-pointer">
-                  {/* Book Cover */}
-                  <div className="relative aspect-[3/4] bg-gradient-to-br from-soft-blush/20 to-ivory-white">
+                  {/* Book Cover - compact, content sits close to it */}
+                  <div className="relative aspect-[4/5] flex-shrink-0 bg-gradient-to-br from-soft-blush/20 to-ivory-white">
                     <img
                       src={book.image}
                       alt={book.title}
-                      className="w-full h-full object-contain p-4"
+                      className="w-full h-full object-contain p-2"
                       loading="lazy"
                     />
                   </div>
 
-                  {/* Book Info */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-heading font-bold text-royal-indigo mb-1 group-hover:text-magenta transition-colors">
+                  {/* Book Info - compact, tight to photo */}
+                  <div className="px-4 pt-3 pb-4">
+                    <h3 className="text-lg font-heading font-bold text-royal-indigo mb-0.5 group-hover:text-magenta transition-colors">
                       {book.title}
                     </h3>
                     {book.subtitle && (
-                      <p className="text-sm text-warm-charcoal/70 mb-3 italic">
+                      <p className="text-xs text-warm-charcoal/70 mb-2 italic leading-snug">
                         {book.subtitle}
                       </p>
                     )}
-                    <p className="text-warm-charcoal mb-4 leading-relaxed text-sm">
+                    <p className="text-warm-charcoal mb-3 leading-snug text-sm">
                       {book.description}
                     </p>
-                    <div className="flex items-center gap-2 text-magenta font-semibold hover:gap-3 transition-all group/btn">
+                    <div className="flex items-center gap-2 text-magenta font-semibold hover:gap-3 transition-all group/btn text-sm">
                       Buy on Amazon
                       <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </div>

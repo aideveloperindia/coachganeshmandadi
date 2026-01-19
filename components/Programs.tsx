@@ -70,7 +70,7 @@ export default function Programs() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Card className="h-full group hover:border-accent/50 cursor-pointer relative overflow-hidden">
+                <Card className="h-full flex flex-col group hover:border-accent/50 cursor-pointer relative overflow-hidden">
                   {/* Duration Badge */}
                   <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-magenta to-golden-amber text-white rounded-full px-3 py-1 shadow-lg font-bold text-xs">
                     {program.duration}
@@ -78,7 +78,7 @@ export default function Programs() {
                   {/* Accent border on hover */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                   
-                  <CardHeader>
+                  <CardHeader className="flex-shrink-0">
                     <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
@@ -86,22 +86,24 @@ export default function Programs() {
                       {program.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                      {program.short}
-                    </p>
-                    <ul className="space-y-2 mb-4">
-                      {program.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-start text-sm text-gray-600">
-                          <span className="text-accent mr-2">•</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <CardContent className="flex flex-col flex-1 min-h-0 pt-0">
+                    <div className="flex-1 min-h-0">
+                      <p className="text-gray-600 leading-relaxed mb-4">
+                        {program.short}
+                      </p>
+                      <ul className="space-y-2 mb-4">
+                        {program.bullets.map((bullet, i) => (
+                          <li key={i} className="flex items-start text-sm text-gray-600">
+                            <span className="text-accent mr-2">•</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                     <Button
                       variant="accent"
                       size="sm"
-                      className="w-full group"
+                      className="w-full mt-auto group"
                       onClick={() => handleEnquire(program.title)}
                     >
                       Book / Enquire

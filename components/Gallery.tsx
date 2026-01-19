@@ -94,7 +94,7 @@ export default function Gallery() {
             Video Gallery
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-warm-charcoal max-w-3xl mx-auto px-4">
-            Watch relationship coaching sessions and workshops in action
+            Watch relationship coaching sessions
           </p>
           <motion.div
             className="w-24 h-1 bg-warm-charcoal mx-auto mt-6 rounded-full"
