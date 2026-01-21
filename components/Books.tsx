@@ -9,17 +9,17 @@ const books = [
   {
     id: "book1",
     title: "Modern Couples, Ancient Wisdom",
-    subtitle: "A Blueprint To Heal Conflicts, Deepen Intimacy & Create Emotionally Thriving Marriages",
+    subtitle: "Blueprint to Heal Conflicts, Deepen Intimacy & Create Emotionally Thriving Marriages",
     image: "/book2.png",
-    description: "If marriages are made in heaven - why live them in silence, pain, or conflict? Discover practical wisdom to transform your relationship.",
+    description: "Timeless insights and practical tools to heal conflicts, deepen intimacy, and build soulful partnerships.",
     amazonUrl: "https://www.amazon.in/Modern-Couples-Ancient-Wisdom-Emotionally/dp/9367078943",
   },
   {
     id: "book2",
     title: "Your Life Graduation",
-    subtitle: "From Fulfillment to Empires",
+    subtitle: "Audible Version",
     image: "/Life graduationbook.png",
-    description: "A transformative guide to personal growth and achieving your highest potential in life and career.",
+    description: "This book encapsulates all the essential life ingredients in the form of 'Ten Life Fulfillment Empires' which includes Right Mindset, Personalset, Healthset, Familyset, Heartset, Professionalset, Financialset, Socialset, Spiritualset, and Philanthropicset.",
     amazonUrl: "https://www.amazon.in/Your-Life-Graduation-Fulfillment-Empires/dp/9394437258",
   },
 ];
