@@ -55,24 +55,24 @@ export default function Books() {
           />
         </motion.div>
 
-        {/* Books Grid - full width, equal height cards, buttons aligned */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        {/* Books Grid - equal height cards, buttons aligned at bottom */}
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-stretch">
           {books.map((book, index) => (
             <motion.div
               key={book.id}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.2, duration: 0.5 }}
-              className="group"
+              className="group h-full flex"
             >
               <a
                 href={book.amazonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full"
+                className="block w-full h-full flex flex-col"
               >
-                <div className="bg-ivory-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-royal-indigo/10 hover:border-royal-indigo/50 cursor-pointer">
-                  {/* Book Cover - compact, content sits close to it */}
+                <div className="bg-ivory-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-royal-indigo/10 hover:border-royal-indigo/50 cursor-pointer flex flex-col h-full">
+                  {/* Book Cover - same aspect for both */}
                   <div className="relative aspect-[4/5] flex-shrink-0 bg-gradient-to-br from-soft-blush/20 to-ivory-white">
                     <img
                       src={book.image}
@@ -82,8 +82,8 @@ export default function Books() {
                     />
                   </div>
 
-                  {/* Book Info - compact, tight to photo */}
-                  <div className="px-4 pt-3 pb-4">
+                  {/* Book Info - grows to fill, button at bottom */}
+                  <div className="px-4 pt-3 pb-4 flex flex-col flex-1 min-h-0">
                     <h3 className="text-lg font-heading font-bold text-royal-indigo mb-0.5 group-hover:text-magenta transition-colors">
                       {book.title}
                     </h3>
@@ -92,10 +92,10 @@ export default function Books() {
                         {book.subtitle}
                       </p>
                     )}
-                    <p className="text-warm-charcoal mb-3 leading-snug text-sm">
+                    <p className="text-warm-charcoal mb-3 leading-snug text-sm flex-1 min-h-0">
                       {book.description}
                     </p>
-                    <div className="flex items-center gap-2 text-magenta font-semibold hover:gap-3 transition-all group/btn text-sm">
+                    <div className="flex items-center gap-2 text-magenta font-semibold hover:gap-3 transition-all group/btn text-sm mt-auto">
                       Buy on Amazon
                       <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </div>
