@@ -17,9 +17,9 @@ const books = [
   {
     id: "book2",
     title: "Your Life Graduation",
-    subtitle: "Audible Version",
+    subtitle: "Make Heaven Out of Your Living Hells",
     image: "/Life graduationbook.png",
-    description: "This book encapsulates all the essential life ingredients in the form of 'Ten Life Fulfillment Empires' which includes Right Mindset, Personalset, Healthset, Familyset, Heartset, Professionalset, Financialset, Socialset, Spiritualset, and Philanthropicset.",
+    description: "\"Step into a life of clarity, balance, and unstoppable purpose.\" A guide to mastering productivity, emotional balance, and purpose-driven living.",
     amazonUrl: "https://www.amazon.in/Your-Life-Graduation-Fulfillment-Empires/dp/9394437258",
   },
 ];
@@ -72,8 +72,8 @@ export default function Books() {
                 className="block w-full h-full flex flex-col"
               >
                 <div className="bg-ivory-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-royal-indigo/10 hover:border-royal-indigo/50 cursor-pointer flex flex-col h-full">
-                  {/* Book Cover - same aspect for both */}
-                  <div className="relative aspect-[4/5] flex-shrink-0 bg-gradient-to-br from-soft-blush/20 to-ivory-white">
+                  {/* Book Cover - shorter height */}
+                  <div className="relative aspect-[1/1] max-h-[280px] flex-shrink-0 bg-gradient-to-br from-soft-blush/20 to-ivory-white">
                     <img
                       src={book.image}
                       alt={book.title}
